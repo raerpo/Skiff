@@ -1,0 +1,34 @@
+.hours{
+	display: inline-flex;
+	border: 2px solid #eaeaea;
+	padding: 1em;
+	margin-right: .2em;
+	border-radius: 10px;
+}
+
+.hours:hover{
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+.selected{
+	background-color: #449d44;
+	border-color: #398439;
+	color: white;
+}
+
+.noSelected{
+	background-color: white;
+}
+
+.listDays{
+	text-align: center;
+}
+
+.panel-title{
+	font-size: 20px;
+}
+
+.content-take-turns{
+	max-width: 900px;
+}

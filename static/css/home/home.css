@@ -1,0 +1,125 @@
+.sectionPers{
+	border: 1px solid #eaeaea;
+	padding: 1em;
+	width: 60%;
+	margin: 0px 1em;
+	border-radius: 10px;
+	min-height: 550px; 
+}
+
+.asidePers{
+	width: 40%;
+	border: 1px solid #eaeaea;
+	padding: 1em;
+	margin: 0px 1em;
+	border-radius: 10px; 
+}
+
+.home{
+	display: flex;
+}
+
+
+.asideRight{
+	margin-bottom: 3em;
+}
+
+
+.content-calendary{
+	width: 100%;
+	border-radius: 0px 0px 20px 20px;
+	border: 1px solid rgba(0,0,0,.2);
+	padding-bottom: 3em;
+}
+
+.day-calendary{
+	display: inline-flex;
+	align-items: center;
+	width: 14%;
+	height: 30px;
+	color: #9d9d9d;
+	border-radius: 5px;
+}
+
+.text-day{
+	margin: 0px auto;
+	text-align: center;
+}
+
+.selected-day{
+	background-color: rgba(51, 122, 183, .6);
+	color: white;
+}
+
+.day-week{
+	display: inline-flex;
+	align-items: center;
+	width: 14.28919%;
+	height: 30px;
+	color: #9d9d9d;
+}
+
+.text-day-week{
+	margin: 0px auto;
+	text-align: center;
+	color: white;
+}
+
+.head-calendary{
+	width: 100%;
+	background-color: #337ab7;
+	margin-bottom: 1em;
+	padding: 0px 12% 0px 10%;
+}
+
+.body-calendary{
+/*	background-color: green;*/
+	width: 80%;
+	margin: 0px auto;
+	font-size: 20px;
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+}
+
+.row-worked-head {
+	border-radius: 0px 0px 15px 15px;
+	margin-bottom: .5em;
+ 	padding: .5em 3%;
+ 	background-color: rgba(51, 122, 183, .8);
+ 	color: white;
+}
+
+.row-worked-head div{
+	display: inline-flex;
+	width: 33.33%;
+	text-align: center;
+/*	color: #464eaf;*/
+}
+
+.row-worked{
+	margin:0px auto;
+	width: 96%;
+	border: 1px solid #eaeaea;
+	padding: 1em;
+	margin-bottom: .5em;
+	border-radius: 5px;
+	background-color: rgba(51, 122, 183, .1);
+}
+
+.row-worked div{
+	display: inline-flex;
+	width: 33.33%;
+	color: #464eaf;
+}
+
+.content-hour > iframe{
+	width: 100%;
+	border: none;
+	margin-bottom: 3em;
+}
+
+.h3-home{
+	margin: .5em auto;
+	width: 237px;
+	color: #444;
+/*	border-bottom: 1px solid #9d9d9d;*/
+}

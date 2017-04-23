@@ -1,0 +1,178 @@
+.content{
+	margin: 0px auto;
+	margin-top: 2em;
+}
+
+.footerLoginUser{
+	padding: .5em 0px;
+	width: 100%;
+	background-color: #111;
+	height: 55px;
+	bottom: 0px;
+	border-top: 1px solid #c7b9b9;
+}
+
+.textFooter{
+	width: 100%;
+	bottom: 0;
+	color: black;
+	text-align: center;
+	margin-top: .5em;
+	margin-bottom: .5em;
+	right: 1px;
+}
+
+.footer-social{
+	width: 100%;
+	text-align: center;
+	margin: 0px auto;
+	display: inline-block;
+}
+
+.social-img-footer{
+	margin: 0px 2px;
+	border: 1px solid white;
+	opacity: .7;
+	width: 42px;
+	height: 42px;
+	display: inline-block;
+	align-items: center;	
+	border-radius: 50%;
+	overflow: hidden;
+	padding: .2em;
+	background-color: #333;
+}
+
+.social-img-footer img{
+	width: 100%;
+	transform: scale(0.65);
+}
+
+.social-img-footer:hover{
+	transform: scale(1.1);
+	transition: transform .2s ease-out;
+	background-color: black;
+	opacity: 1;	
+}
+
+
+.index-navbar{
+	margin-right: -1em;
+}
+
+.index-navbar-hidden{
+	display: none !important;
+}
+
+@media (max-width: 768px) {
+    .index-navbar {
+        display: none !important;
+    }
+
+    .footerLoginUser{
+    	margin-top: 3em;
+    	position: relative !important;
+    }
+}
+
+@media (max-width: 768px){
+	.index-navbar-hidden{
+		display: block !important;
+	}
+	.index-navbar-hidden a{
+		color: #9d9d9d;
+		text-decoration:none;   
+	}
+	.index-navbar-hidden:hover{
+		color: white;
+	}
+
+/*	.titleFloat{
+    	margin-left: 10px;
+  	}*/
+}
+
+.index-navbar-hiddenAdm{
+	display: none !important;
+}
+
+#navbar{
+	width: 100%;
+}
+
+.navAdm{
+	position: absolute;
+	right: 10px;
+}
+
+@media (max-width: 768px){
+	.navAdm{
+		display: none;
+	}
+
+	.index-navbar-hiddenAdm{
+		display: block !important;
+	}
+}
+
+
+.nav2{
+	float: right;
+}
+
+/* --------- */
+
+.content-no-available{
+	border: 1px solid red;
+	margin: 3em auto 0px;
+	width: 70%;
+	padding: 2em;
+	text-align: center;
+	font-size: 2em;
+}
+
+/*this is a official code */
+.footer_type_2 > .footer-social{
+	background-color: #222;
+	margin-top: 2em;
+}
+
+.social-img-footer{
+	margin-top: 10px;
+}
+.textFooter{
+	background-color: #222;
+	color: white;
+}
+
+/* -------- */
+
+/*this is a official code */
+.footer_type_1 > .footer-social{
+	background-color: #222;
+	margin-top: 2em;
+	position: absolute;
+	bottom: -1px;
+}
+
+.social-img-footer{
+	margin-top: 10px;
+}
+.textFooter{
+	background-color: #222;
+	color: white;
+}
+
+/* -------- */
+
+/*this is a official code */
+.footer_type_3 > .footer-social{
+	display: block;
+	background-color: #222;
+	height: 100px;
+	width: 100%;
+}
+
+
+
+/* -------- */
