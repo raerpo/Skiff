@@ -200,7 +200,7 @@ class Register extends React.Component {
 				/>	
 			</div>
 			<Footer 
-			classNames={'footer_type_2'}
+			typeFooter={'2'}
 			/>
 		</div>
 		)

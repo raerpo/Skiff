@@ -10,7 +10,7 @@ class Contact extends React.Component {
 					<NoAvailable />
 				</div>
 				<Footer 
-				classNames={'footer_type_1'} />
+				typeFooter={'1'} />
 			</div>
 		)
 	}

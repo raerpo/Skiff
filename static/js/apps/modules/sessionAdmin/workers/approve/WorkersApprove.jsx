@@ -54,7 +54,7 @@ class WorkersApprove extends React.Component{
 		return (
 			<div className="content">
 				{workersDisabled}
-				<Footer classNames={'footer_type_1'} />
+				<Footer typeFooter={'1'} />
 			</div>
 		)
 	}

@@ -79,7 +79,7 @@ class IndexPage extends React.Component {
 		      	</div>
 			</div>
 			<Footer 
-			classNames={'footer_type_2'}
+			typeFooter={'2'}
 			/>
 		</div>
 		)
