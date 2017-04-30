@@ -4,6 +4,7 @@ import NoAvailable from '../NoAvailable';
 
 class About extends React.Component {
 	render(){
+		const jp = 1;
 		return (
 			<div>
 				<div className="content">
