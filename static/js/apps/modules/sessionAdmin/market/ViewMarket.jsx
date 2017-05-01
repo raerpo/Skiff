@@ -1,17 +1,15 @@
 import React from 'react';
 
 function getData(){
-    const data = $.get('/data/market/dfg43g3gfdg42fyy');
-
-    console.log(data);
-    return data;
+    return data = $.get('/data/market/dfg43g3gfdg42fyy');
 }
 
-const ViewMarket = () => {
-    getData();
-    return(
-        <div>market</div>
-    )
+class ViewMarket extends React.Component{
+    render(){
+        return(
+            <div>market</div>
+        )
+    }
 
 }
 
