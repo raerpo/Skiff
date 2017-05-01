@@ -172,6 +172,10 @@ app.get('/admin/market/create', function(req, res){
 	if(req.session.market){ res.redirect('/admin/home') };
 })
 
+app.get('/admin/view/supermarket', function(req, res){
+	redicForAdmin(req, res);
+})
+
 app.post('/admin/workers/remove', function(req, res){
 	redicForAdmin(req, res);
 	const rut = req.body.data.rut;
@@ -292,8 +296,7 @@ app.get('/data/jj8dd1scsa82jsass224', function(req, res){
 	const query =  `SELECT name, value FROM days, hours, turns 
 					WHERE turns.id_user='${req.session.user}'
 					AND days.id_d=turns.id_day
-					AND hours.id_h=turns.id_hour
-					ORDER BY name, value ASC`;
+					AND hours.id_h=turns.id_hour`;
 
 	connection.query(query, function(err, results){
 		res.json(results);
@@ -340,7 +343,17 @@ app.get('/data/k/ffgh4dwwwwq24rrgtyuwe', function(req, res){
 
 // get Workers disabled
 app.get('/data/user/jdqwerdfisllediifkwuyh', function(req, res){
-	const query = `SELECT rut, name, lastName, phone, statusAccount FROM user WHERE id_market=${req.session.market} AND statusAccount=2`;
+	const query = `SELECT rut, name, lastName, phone, statusAccount FROM user WHERE id_market=${req.session.user}`;
+
+	connection.query(query, function(err, results){
+		res.json(results);
+	});
+
+});
+
+// getSuperMarket --> viewMarket
+app.get('/data/market/dfg43g3gfdg42fyy', function(req, res){
+	const query = `SELECT * FROM supermarket WHERE rut_admin=${req.session.market}`;
 
 	connection.query(query, function(err, results){
 		res.json(results);

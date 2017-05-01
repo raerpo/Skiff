@@ -22,17 +22,17 @@ class NavBar extends React.Component {
                     <ul className="dropdown-menu">
                       <li><a href="/turns/take"><span className="glyphicon glyphicon-triangle-right "></span> Tomar turnos</a></li>
                       <li><a href="/turns/view"><span className="glyphicon glyphicon-triangle-right "></span> Ver turnos</a></li>
-                      <li><a href="/turns/change"><span className="glyphicon glyphicon-triangle-right "></span> Cambiar turnos</a></li>
+                      {/*<li><a href="/turns/change"><span className="glyphicon glyphicon-triangle-right "></span> Cambiar turnos</a></li>*/}
                     </ul>
                   </li>
-                  <li className="dropdown">
+                  {/*<li className="dropdown">
                     <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span className="glyphicon glyphicon-cog"></span> Configuraciones <span className="caret"></span></a>
                     <ul className="dropdown-menu">
                       <li><a href="#"><span className="glyphicon glyphicon-triangle-right "></span> Cambiar Contraseña </a></li>
                       <li><a href="#"><span className="glyphicon glyphicon-triangle-right "></span> Actualizar datos </a></li>
                     <li><a href="#"><span className="glyphicon glyphicon-triangle-right "></span> Eliminar cuenta </a></li>
                     </ul>
-                  </li>
+                  </li>*/}
                   <li className="index-navbar-hidden"><a href="/exit"><span className="glyphicon glyphicon-log-in"></span> Cerrar sesión</a></li>
                 </ul>
                 <ul className="nav navbar-nav nav2">
