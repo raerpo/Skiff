@@ -34,7 +34,7 @@ class FormularyMarket extends React.Component {
 									<option value="Jumbo"> Jumbo </option>
 									<option value="Tottus"> Tottus </option>
 									<option value="Unimarc"> Unimarc </option>	
-									<option value="Santa Isabel"> Santa-Isabel </option>on>
+									<option value="Santa Isabel"> Santa Isabel </option>
 							    </select>
 							</div>
 

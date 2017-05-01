@@ -19,6 +19,7 @@ import PageAdmin from './modules/sessionAdmin/PageAdmin';
 import HomeAdm from './modules/sessionAdmin/homeAdm/HomeAdm';
 import WorkersApprove from './modules/sessionAdmin/workers/approve/WorkersApprove';
 import CreateMarket from './modules/sessionAdmin/market/CreateMarket';
+import ViewMarket from './modules/sessionAdmin/market/ViewMarket';
 
 const history = useRouterHistory(createHistory)({
   basename: '/base-path'
@@ -46,6 +47,7 @@ ReactDOM.render(
             <Route path="/admin/home" component={ HomeAdm } />
             <Route path="/admin/workers/approve" component={ WorkersApprove } />
             <Route path="/admin/market/create" component={ CreateMarket } />
+            <Route path="/admin/view/supermarket" component={ ViewMarket} />
         </Route>
     </Router>,
     document.getElementById('app')

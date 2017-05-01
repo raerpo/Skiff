@@ -22,27 +22,27 @@ class NavBar extends React.Component {
                     <ul className='dropdown-menu'>
                       <li><a href='/admin/workers/approve'><span className='glyphicon glyphicon-triangle-right '></span> Aprobar trabajador </a></li>
                       <li><a href='#'><span className='glyphicon glyphicon-triangle-right '></span> Ver trabajadores </a></li>
-                      <li><a href='#'><span className='glyphicon glyphicon-triangle-right '></span> Actualizar trabajador </a></li>
-                      <li><a href='#'><span className='glyphicon glyphicon-triangle-right '></span> Eliminar trabajador </a></li>
+                      {/*<li><a href='#'><span className='glyphicon glyphicon-triangle-right '></span> Actualizar trabajador </a></li>
+                      <li><a href='#'><span className='glyphicon glyphicon-triangle-right '></span> Eliminar trabajador </a></li>*/}
                     </ul>
                   </li>
                    <li className='dropdown'>
                     <a href='#' className='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'><span className='glyphicon glyphicon-check'></span> Administrar <span className='caret'></span></a>
                     <ul className='dropdown-menu'>
-                      <li><a href='#'><span className='glyphicon glyphicon-triangle-right '></span> Supermercado </a></li>
+                      <li><a href='/admin/view/supermarket'><span className='glyphicon glyphicon-triangle-right '></span> Supermercado </a></li>
                       <li><a href='#'><span className='glyphicon glyphicon-triangle-right '></span> Informe semanal PDF </a></li>
-                      <li><a href='#'><span className='glyphicon glyphicon-triangle-right '></span> Ver planes </a></li>
-                      <li><a href='#'><span className='glyphicon glyphicon-triangle-right '></span> Pagar </a></li>
+                      {/*<li><a href='#'><span className='glyphicon glyphicon-triangle-right '></span> Ver planes </a></li>
+                      <li><a href='#'><span className='glyphicon glyphicon-triangle-right '></span> Pagar </a></li>*/}
                     </ul>
                   </li>
-                  <li className='dropdown'>
+                  {/*<li className='dropdown'>
                     <a href='#' className='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'><span className='glyphicon glyphicon-cog'></span> Configuraciones <span className='caret'></span></a>
                     <ul className='dropdown-menu'>
                       <li><a href='#'><span className='glyphicon glyphicon-triangle-right '></span> Cambiar Contraseña </a></li>
                       <li><a href='#'><span className='glyphicon glyphicon-triangle-right '></span> Actualizar datos </a></li>
                     <li><a href='#'><span className='glyphicon glyphicon-triangle-right '></span> Eliminar cuenta </a></li>
                     </ul>
-                  </li>
+                  </li>*/}
                   <li className='index-navbar-hiddenAdm'><a href='/exit'><span className='glyphicon glyphicon-log-out'></span> Cerrar sesión </a></li>
                 </ul>
                 <ul className='nav navbar-nav nav2 navAdm'>

@@ -72,11 +72,7 @@ class CreateMarket extends React.Component{
 		}
 
 		if(type != ""){
-			if(validateCity.test(type)){
-				this.setState({ type : {newClass : "dataCorrect"} });
-			}else{
-				this.setState({ type : {newClass : "dataIncorrect"} });
-			}
+			this.setState({ type : {newClass : "dataCorrect"} });
 		}else{
 			this.setState({ type : {newClass : "none"} });
 		}
