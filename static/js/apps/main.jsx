@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { browserHistory, Router, Route, IndexRoute, useRouterHistory } from 'react-router';
 import { createHistory } from 'history';
 import PageUser from './modules/session/PageUser';
 import Index from './modules/Index';
@@ -20,14 +20,34 @@ import HomeAdm from './modules/sessionAdmin/homeAdm/HomeAdm';
 import WorkersApprove from './modules/sessionAdmin/workers/approve/WorkersApprove';
 import CreateMarket from './modules/sessionAdmin/market/CreateMarket';
 
-const Page = () => (
-    <Router>
-        <div>
-        <Route exact path="/" component={Index} />
-        <Route exact path="/about" component={Index} />
-        </div>
-    </Router>   
-)
+const history = useRouterHistory(createHistory)({
+  basename: '/base-path'
+});
 
-ReactDOM.render(<Page /> , document.getElementById('app'));
+ReactDOM.render(
+    <Router history={ browserHistory }>     
+        <Route path="/" component={ Index }>
+            <Route path="/index" component={ IndexPage } />
+            <Route path="/login" component={ Login } />
+            <Route path="/contact" component={ Contact } />
+            <Route path="/about" component={ About } />
+            <Route path="/admin/login" component={ Admin } />
+            <Route path="/register" component={ Register } />
+        </Route>
+        <Route path="/session" component={ PageUser } >
+            <Route path="/home" component={ Home } />
+            <Route path="/turns/take" component={ TakeTurns } />
+            <Route path="/turns/view" component={ ViewTurns } />
+            <Route path="/turns/change" component={ ChangeTurns } />
+            <Route path="/settings" component={ Settings } />
+            <Route path="/exit" />            
+        </Route>
+        <Route path="/admin" component={ PageAdmin }>
+            <Route path="/admin/home" component={ HomeAdm } />
+            <Route path="/admin/workers/approve" component={ WorkersApprove } />
+            <Route path="/admin/market/create" component={ CreateMarket } />
+        </Route>
+    </Router>,
+    document.getElementById('app')
+);
          
