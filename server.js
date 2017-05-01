@@ -15,7 +15,7 @@ app.use(bodyParser());
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '12345',
+  password: '',
   database: 'market'
 });
 
@@ -348,6 +348,6 @@ app.get('/data/user/jdqwerdfisllediifkwuyh', function(req, res){
 
 });
 
-const listener = app.listen(1000, () =>
+const listener = app.listen(3000, () =>
   console.log(`Running app on ${listener.address().address}${listener.address().port}`));
 //Test;
