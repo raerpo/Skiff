@@ -208,11 +208,11 @@ app.post('/admin/market/create/validate', function(req, res){
 			type : req.body.type
 		}
 
-		connection.query('INSERT INTO supermarket SET ?' , newData, function (err, results, fields){
+		connection.query('INSERT INTO superMarket SET ?' , newData, function (err, results, fields){
 			if (err) throw error;
 		});
 
-		connection.query(`SELECT rut_admin, id FROM supermarket`, function(err, results){
+		connection.query(`SELECT rut_admin, id FROM superMarket`, function(err, results){
 			results.forEach(function(data){
 				if(data.rut_admin === req.session.user){
 					connection.query(`UPDATE admin SET id_market=${data.id} WHERE rut='${data.rut_admin}'`);
@@ -285,7 +285,7 @@ app.get('/data/kdfkjg82s02kkd9337f' , function(req, res){
 app.get('/data/fvht3sd120980ksd881s', function(req, res){
 	const market = req.session.market;
 
-	const query = `SELECT totalBoxes FROM supermarket WHERE id=${market}`
+	const query = `SELECT totalBoxes FROM superMarket WHERE id=${market}`
 	connection.query(query , function(err, results){
 		res.json(results[0].totalBoxes);
 	})
@@ -343,7 +343,7 @@ app.get('/data/k/ffgh4dwwwwq24rrgtyuwe', function(req, res){
 
 // get Workers disabled
 app.get('/data/user/jdqwerdfisllediifkwuyh', function(req, res){
-	const query = `SELECT rut, name, lastName, phone, statusAccount FROM user WHERE id_market=${req.session.user}`;
+	const query = `SELECT rut, name, lastName, phone, statusAccount FROM user WHERE id_market=${req.session.market} AND statusAccount=2`;
 
 	connection.query(query, function(err, results){
 		res.json(results);
@@ -353,7 +353,7 @@ app.get('/data/user/jdqwerdfisllediifkwuyh', function(req, res){
 
 // getSuperMarket --> viewMarket
 app.get('/data/market/dfg43g3gfdg42fyy', function(req, res){
-	const query = `SELECT * FROM supermarket WHERE rut_admin=${req.session.market}`;
+	const query = `SELECT * FROM superMarket WHERE rut_admin=${req.session.market}`;
 
 	connection.query(query, function(err, results){
 		res.json(results);
