@@ -21,6 +21,7 @@ import WorkersApprove from './modules/sessionAdmin/workers/approve/WorkersApprov
 import CreateMarket from './modules/sessionAdmin/market/CreateMarket';
 import ViewMarket from './modules/sessionAdmin/market/ViewMarket';
 import WorkersView from './modules/sessionAdmin/workers/WorkersView';
+import ViewAllTurns from './modules/session/turns/viewAllTurns';
 
 const history = useRouterHistory(createHistory)({
   basename: '/base-path'
@@ -40,6 +41,7 @@ ReactDOM.render(
             <Route path="/home" component={ Home } />
             <Route path="/turns/take" component={ TakeTurns } />
             <Route path="/turns/view" component={ ViewTurns } />
+            <Route path="/turns/viewAll" component={ ViewAllTurns } />
             <Route path="/turns/change" component={ ChangeTurns } />
             <Route path="/settings" component={ Settings } />
             <Route path="/exit" />            
@@ -50,6 +52,7 @@ ReactDOM.render(
             <Route path="/admin/workers/view" component={ WorkersView } />
             <Route path="/admin/market/create" component={ CreateMarket } />
             <Route path="/admin/view/supermarket" component={ ViewMarket} />
+            <Route path="/admin/workers/viewAllTurns" component={ ViewAllTurns } />
         </Route>
     </Router>,
     document.getElementById('app')

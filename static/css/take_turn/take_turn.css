@@ -30,5 +30,22 @@
 }
 
 .content-take-turns{
-	max-width: 900px;
+	width: 70%;
+
+	margin: 0px auto;
+}
+
+.send-turns{
+	padding: 1em 2em;
+}
+
+.title-take-turns{
+	text-align: center;
+	color: #777;
+	margin: 1em auto;
+}
+
+.panel-group{
+	border: 1px solid #eaeaea !important;
+	border-radius: 15px !important;
 }

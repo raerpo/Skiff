@@ -175,6 +175,14 @@ app.get('/admin/workers/view', function(req, res){
 	}
 });
 
+app.get('/admin/workers/viewAllTurns', function(req, res){
+	if(req.session.market == null){
+		res.redirect('/admin/market/create');
+	}else{
+		redicForAdmin(req, res);
+	}
+});
+
 app.get('/admin/market/create', function(req, res){
 	redicForAdmin(req, res);
 	if(req.session.market){ res.redirect('/admin/home') };
@@ -259,6 +267,11 @@ app.post('/turns/take/validate', function(req, res){
 app.get('/turns/view', function(req, res){
 	redicForUser(req, res);
 });
+
+app.get('/turns/viewAll', function(req, res){
+	redicForUser(req, res);
+});
+
 app.get('/turns/change', function(req, res){
 	redicForUser(req, res);
 });	
@@ -358,6 +371,26 @@ app.get('/data/user/jdqwerdfisllediifkwuyh', function(req, res){
 	});
 
 });
+
+// get all turns
+app.get('/data/turns/k82rjhsd8883kfdsss', function(req, res){
+	const query = `SELECT 
+				   user.name, 
+				   user.lastName,
+				   days.name as nameDay,
+				   hours.value
+                   FROM turns, days, hours, user
+                   WHERE days.id_d=turns.id_day 
+                   AND hours.id_h=turns.id_hour
+                   AND user.rut=turns.id_user
+                   AND id_superMarket=${req.session.market}`;
+
+	connection.query(query, function(err, results){
+		res.json(results);
+	});
+
+});
+
 
 // getSuperMarket --> viewMarket
 app.get('/data/market/dfg43g3gfdg42fyy', function(req, res){

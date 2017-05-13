@@ -73,7 +73,7 @@ class Formulary extends React.Component {
 							</div>
 
 							<div className="contentBtnRgister" onFocus={this.props.press} >
-								<input className="btn btn-primary" type="button" value="Registrarse" onClick={this.props.send}/>
+								<input className="btn btn-primary btn-register" type="button" value="Registrarse" onClick={this.props.send}/>
 							</div>
 							
 						</div>

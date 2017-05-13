@@ -2,6 +2,10 @@
 	margin-top: 5em;
 }
 
+.panel-primary{
+	border: 1px solid #eaeaea !important;
+}
+
 .content-register{
 	width: 90%;
 }
@@ -45,4 +49,9 @@
 
 .specialLabel{
 	width: 50% !important;
+}
+
+.btn-register{
+	border-radius: 5px !important;
+	margin-top: 1em;
 }

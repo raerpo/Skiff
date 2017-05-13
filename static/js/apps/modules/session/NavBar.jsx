@@ -21,7 +21,8 @@ class NavBar extends React.Component {
                     <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span className="glyphicon glyphicon-briefcase"></span> Turnos <span className="caret"></span></a>
                     <ul className="dropdown-menu">
                       <li><a href="/turns/take"><span className="glyphicon glyphicon-triangle-right "></span> Tomar turnos</a></li>
-                      <li><a href="/turns/view"><span className="glyphicon glyphicon-triangle-right "></span> Ver turnos</a></li>
+                      <li><a href="/turns/view"><span className="glyphicon glyphicon-triangle-right "></span> Ver mis turnos</a></li>
+                      <li><a href="/turns/viewAll"><span className="glyphicon glyphicon-triangle-right "></span> Ver turnos tomados</a></li>
                       {/*<li><a href="/turns/change"><span className="glyphicon glyphicon-triangle-right "></span> Cambiar turnos</a></li>*/}
                     </ul>
                   </li>

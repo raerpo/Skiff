@@ -127,12 +127,27 @@
 
 	.row-worked-head{
 		display: flex !important;
-		padding: .5em 0px !important;
+		padding: .5em 15px .5em 0px !important;
 	}
 
 	.row-worked-head > div{
 		display: block !important;
 		text-align: center !important;
+	}
+
+	.row-worked{
+		display: flex !important;
+		padding: 0px !important;
+		margin: 0px !important;
+		text-align: center !important;
+		
+	}
+	
+	.row-worked > div{
+		padding: 0px !important;
+		margin: 0px !important;
+		text-align: center !important;
+		display: block !important;
 	}
 
 	.footer_type_1{
@@ -144,6 +159,12 @@
 	.index-navbar-hiddenAdm{
 		display: block !important;
 	}
+
+	.panel-body div{
+		width: 100% !important;
+		display: block !important;
+	}
+
 }
 
 
@@ -204,6 +225,16 @@
 	width: 100%;
 }
 
+.panel-heading{
+	background-color: rgba(51, 122, 183, .7) !important;
+	border-radius: 0px 0px 15px 15px !important;
+	color: white !important;
+	border: none !important;
+}
+
+.panel-default{
+	border-color: white !important; 
+}
 
 
 /* -------- */

@@ -1,5 +1,6 @@
 import React from 'react';
 import Elements from './Elements';
+import Footer from '../../../Footer';
 
 function getDataTurns(){
 	return $.getJSON('/data/w9rie82jfns8fgd82ks');
@@ -103,10 +104,14 @@ class TakeTurns extends React.Component {
 
     render(){
         return (
-        	<div className="content content-take-turns listDays"> 
+        <div>
+            <h2 className="title-take-turns">Turnos disponibles</h2>
+        	<div className="content-take-turns listDays"> 
                 <Elements getInfo={ this.getInfoElement } unSelectElement={ this.unSelectElement } rawData={this.state.elements} data={ generateSendDAta(this.state) } />
-                <input className="btn btn-success" onClick={ (i) => this.sendDataDB(this.state.selectedTurns) } type="button" value="Tomar turnos" />
+                <input className="btn btn-success send-turns" onClick={ (i) => this.sendDataDB(this.state.selectedTurns) } type="button" value="Tomar turnos" />
         	</div>	
+            <Footer typeFooter={"2"} />
+        </div>
         )
     }
 };

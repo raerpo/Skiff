@@ -19,9 +19,7 @@ class Day extends React.Component {
 			    </div>
 			    <div id={this.props.collapse} className="panel-collapse collapse in">
 			    	<div className="panel-body">
-			    		<div>
-			    			{ hours }
-			    		</div>
+			    		{ hours }
 			    	</div>
 			    </div>
 			</div>
