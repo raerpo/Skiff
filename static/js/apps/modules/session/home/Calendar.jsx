@@ -39,6 +39,7 @@ class Calendar extends React.Component {
 			.map((data, index) => <DayWeek key={`dayWeek_${index}`} info={data} />)
 
 		return(
+
 			<div className="content-calendary">
 				<div className="head-calendary">{ dayWeek }</div>
 				<div className="body-calendary">{ numbers }</div>

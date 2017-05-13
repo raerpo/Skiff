@@ -12,7 +12,7 @@ class Home extends React.Component {
         		<RigthMenu />
         	</div>
                 <Footer 
-				classNames={'footer_type_2'} />
+				typeFooter={'1'} />
             </div>
         )
     }

@@ -110,6 +110,37 @@
 		display: none;
 	}
 
+	.home{
+		display: inline-block !important;
+		width: 100% !important;
+	}
+
+	.sectionPers{
+		width: 100% !important;	
+		margin: 0px !important;
+	}
+
+	.asidePers{
+		width: 100% !important;
+		margin: .5em 0px !important;
+	}
+
+	.row-worked-head{
+		display: flex !important;
+		padding: .5em 0px !important;
+	}
+
+	.row-worked-head > div{
+		display: block !important;
+		text-align: center !important;
+	}
+
+	.footer_type_1{
+		display: block !important;
+		position: relative !important;
+		top: 80px;
+	}
+
 	.index-navbar-hiddenAdm{
 		display: block !important;
 	}

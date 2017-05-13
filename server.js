@@ -167,6 +167,14 @@ app.get('/admin/workers/approve', function(req, res){
 	}
 });
 
+app.get('/admin/workers/view', function(req, res){
+	if(req.session.market == null){
+		res.redirect('/admin/market/create');
+	}else{
+		redicForAdmin(req, res);
+	}
+});
+
 app.get('/admin/market/create', function(req, res){
 	redicForAdmin(req, res);
 	if(req.session.market){ res.redirect('/admin/home') };
@@ -354,6 +362,16 @@ app.get('/data/user/jdqwerdfisllediifkwuyh', function(req, res){
 // getSuperMarket --> viewMarket
 app.get('/data/market/dfg43g3gfdg42fyy', function(req, res){
 	const query = `SELECT * FROM superMarket WHERE rut_admin=${req.session.market}`;
+
+	connection.query(query, function(err, results){
+		res.json(results);
+	});
+
+});
+
+// get workers in supermarket for admin --> viewMarket
+app.get('/data/workers/j563238k9jkggfff4g', function(req, res){
+	const query = `SELECT name, lastName, email, phone, rut FROM user WHERE id_market=${req.session.market}`;
 
 	connection.query(query, function(err, results){
 		res.json(results);

@@ -31,7 +31,7 @@ class AsideTop extends React.Component {
 	render(){
 		return (
 			<div className="content-hour">
-				<Count />
+				{/*<Count />*/}
 			</div>
 		)
 	}

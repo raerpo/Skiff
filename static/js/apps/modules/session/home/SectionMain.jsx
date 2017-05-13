@@ -22,7 +22,9 @@ class SectionMain extends React.Component {
 
 	render(){
 
-		const workeds = this.state.worked.map((data, index) => <Worked key={`worked_${index}`} data={data}/>)
+		const workeds = this.state.worked.length > 0
+			? this.state.worked.map((data, index) => <Worked key={`worked_${index}`} data={data}/>)
+			: (<div className="content-sleep"><img src="static/images/sleep_cat2.gif"/></div>)
 
 		return (
 			<div className="sectionPers">
