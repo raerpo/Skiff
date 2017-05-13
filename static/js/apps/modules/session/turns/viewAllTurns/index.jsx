@@ -5,11 +5,11 @@ function getData(){
 }
 
 const Turn = ({ name, nameDay, lastName, value }) => (
-    <div>
-        <div>{name}</div>
-        <div>{lastName}</div>
-        <div>{nameDay}</div>
-        <div>{value}</div>
+    <div className="content-view-turns-body">
+        <div className="view-turns-body">{name}</div>
+        <div className="view-turns-body">{nameDay}</div>
+        <div className="view-turns-body">{lastName}</div>
+        <div className="view-turns-body">{value}</div>
     </div>
 )
 
@@ -44,8 +44,12 @@ class viewAllTurns extends Component {
         )
 
         return (
-        <div>
-            <div>{turns}</div>
+        <div className="content-info-turns">
+            <div className="content-view-turns-head">
+                <div className="view-turns-head">Trabajador</div>
+                <div className="view-turns-head">Día/hora</div>
+            </div>
+           {turns}
         </div>
         )
     }
