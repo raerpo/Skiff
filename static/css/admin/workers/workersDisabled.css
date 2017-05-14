@@ -19,3 +19,22 @@
 	width: 45%;
 	margin-left: 2px;
 }
+
+.noWorkers-content{
+	width: 90%;
+	border: 2px solid #eaeaea;
+	margin: 2em auto;
+	padding: 10em 5em;
+	text-align: center;
+	background-color: rgba(51, 122, 183, .1);
+}
+
+.noWorkers-text{
+	font-size: 2em;
+	color: #777;
+}
+
+.h3-admin{
+	color: #777;
+	text-align: center;
+}

@@ -1,16 +1,18 @@
 import React from 'react';
+import Footer from '../../Footer';
 
 function getData(){
     return $.get('/data/market/dfg43g3gfdg42fyy');
 }
 
-const Market = ({ comune, country, rutAdmin, totalBoxes, type }) => (
-    <div>
-        <h2>{type}</h2>
-        <div>{rutAdmin}</div>
-        <div>{comune}</div>
-        <div>{country}</div>
-        <div>{totalBoxes}</div>
+const Market = ({ comune, country, rutAdmin, totalBoxes, type, address }) => (
+    <div className="box-market">
+        <h2 className="header-market">{type}</h2>
+        <div><span className="primaryText">Dirección</span>: {address}</div>
+        <div><span className="primaryText">Rut</span>: {rutAdmin}</div>
+        <div><span className="primaryText">Comuna</span>: {comune}</div>
+        <div><span className="primaryText">País</span>: {country}</div>
+        <div><span className="primaryText">Número de cajas</span>: {totalBoxes}</div>
     </div>
 )
 
@@ -38,7 +40,8 @@ class ViewMarket extends React.Component{
         const market = this.state.informationMarket.market.map((data, index) => 
             <Market 
             type={data.type}
-            rutAdmin={data.rutAdmin}
+            rutAdmin={data.rut_admin}
+            address={data.address}
             comune={data.comune}
             country={data.country}
             totalBoxes={data.totalBoxes}
@@ -46,7 +49,12 @@ class ViewMarket extends React.Component{
         );
 
         return(
-            <div>{market}</div>
+            <div>
+                <div className="content-market">
+                    {market}
+                </div>
+                <Footer typeFooter={"1"}/>
+            </div>
         )
     }
 

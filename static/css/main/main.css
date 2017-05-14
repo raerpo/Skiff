@@ -87,6 +87,11 @@
 		color: white;
 	}
 
+	.content-worker{
+		width: 100% !important;
+		display: block !important;
+	}
+
 /*	.titleFloat{
     	margin-left: 10px;
   	}*/
@@ -176,7 +181,7 @@
 
 .content-no-available{
 	border: 1px solid red;
-	margin: 3em auto 0px;
+	margin: 3em auto;
 	width: 70%;
 	padding: 2em;
 	text-align: center;

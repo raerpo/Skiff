@@ -4,6 +4,12 @@ function getData(){
     return $.getJSON('/data/turns/k82rjhsd8883kfdsss');
 }
 
+const NoTurns = () => (
+    <div className="content-noTurns">
+        No se han tomado turnos
+    </div>
+)
+
 const Turn = ({ name, nameDay, lastName, value }) => (
     <div className="content-view-turns-body">
         <div className="view-turns-body">{name}</div>
@@ -31,17 +37,17 @@ class viewAllTurns extends Component {
     }
 
     render(){
+        const allTurns = this.state.turns;
 
-        const turns = this.state.turns.map((turn, index) => 
-            (
+        const turns = allTurns.length > 0 
+        ? allTurns.map((turn, index) =>  (
                 <Turn 
                 name={turn.name}
                 lastName={turn.lastName}
                 nameDay={turn.nameDay}
                 value={turn.value} 
-                key={index}/>
-            )
-        )
+                key={index}/> ))
+        : <NoTurns />
 
         return (
         <div className="content-info-turns">

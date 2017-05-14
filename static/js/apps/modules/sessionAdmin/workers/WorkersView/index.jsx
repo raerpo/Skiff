@@ -5,12 +5,11 @@ function getData(){
 }
 
 const Worker = ({ rut, name, lastName, email, phone }) => (
-    <div>
-        <div>{rut}</div>        
-        <div>{name}</div>
-        <div>{lastName}</div>
-        <div>{email}</div>
-        <div>{phone}</div>        
+    <div className="content-worker">
+        <h2 className="titleWorker">{name} {lastName}</h2>
+        <div><span className="primaryText">Rut</span> : {rut}</div>        
+        <div><span className="primaryText">Email</span> : {email}</div>
+        <div><span className="primaryText">Teléfono</span> : {phone}</div>        
     </div>
 )
 
@@ -45,7 +44,12 @@ class WorkersView extends Component {
             />
         );
 
-        return <div>{workers}</div>
+        return (
+            <div className="content-viewWorkers">
+                <h3 className="h3-admin">Todos mis trabajadores</h3>
+                {workers}
+            </div>
+        )
     }
 };
 

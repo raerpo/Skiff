@@ -12,7 +12,7 @@
 }
 
 .selected{
-	background-color: #449d44;
+	background-color: rgba(68, 157, 68, .7);
 	border-color: #398439;
 	color: white;
 }

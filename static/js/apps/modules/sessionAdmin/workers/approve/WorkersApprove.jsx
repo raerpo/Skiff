@@ -6,6 +6,12 @@ function getData(){
 	return $.getJSON("/data/user/jdqwerdfisllediifkwuyh")
 }
 
+const NoWorkers = () => (
+	<div className="noWorkers-content">
+		<div className="noWorkers-text">No hay trabajadores pendientes</div>
+	</div>
+)
+
 class WorkersApprove extends React.Component{
 
 	constructor(props){
@@ -45,12 +51,21 @@ class WorkersApprove extends React.Component{
 	}
 
 	render(){
+		const workers = this.state.WorkersDis
 
-		const workersDisabled = this.state.WorkersDis
-				.map((data, index) => 
-					<WorkersDisabled key={`worker${index}`} data={data} position={index} approve={this.approve} remove={this.remove}/>
-				);
+		const workersDisabled = 
+		workers.length > 0 
+		? workers.map((data, index) => (
+			<WorkersDisabled 
+			key={`worker${index}`} 
+			data={data} 
+			position={index} 
+			approve={this.approve} 
+			remove={this.remove}/>)) 
+		: <NoWorkers />;
 
+		const title = workers.length ? <h3 className="h3-admin">Trabajadores pendientes</h3> : null;
+		
 		return (
 			<div className="content">
 				{workersDisabled}

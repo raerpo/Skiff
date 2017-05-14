@@ -24,7 +24,7 @@ class NavBarIndex extends React.Component {
               <li className="dropdown index-navbar-hidden">
                 <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span className="glyphicon glyphicon-user"></span> Iniciar Sesión <span className="caret"></span></a>
                 <ul className="dropdown-menu">
-                  <li><a href="#" role="button" data-toggle="modal" data-target="#login-modal"><span className="glyphicon glyphicon-triangle-right "></span> Empaque </a></li>
+                  <li><a href="#" role="button" data-toggle="modal" data-target="#login-modal"><span className="glyphicon glyphicon-triangle-right "></span> Trabajador </a></li>
                   <li><a href="#" role="button" data-toggle="modal" data-target="#login-modal-admin"><span className="glyphicon glyphicon-triangle-right "></span> Administrador </a></li>
                 </ul>
               </li>
@@ -35,7 +35,7 @@ class NavBarIndex extends React.Component {
               <li className="dropdown index-navbar">
                 <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span className="glyphicon glyphicon-user"></span> Iniciar Sesión <span className="caret"></span></a>
                 <ul className="dropdown-menu">
-                  <li><a href="#" role="button" data-toggle="modal" data-target="#login-modal"><span className="glyphicon glyphicon-triangle-right "></span> Empaque </a></li>
+                  <li><a href="#" role="button" data-toggle="modal" data-target="#login-modal"><span className="glyphicon glyphicon-triangle-right "></span> Trabajador </a></li>
                   <li><a href="#" role="button" data-toggle="modal" data-target="#login-modal-admin"><span className="glyphicon glyphicon-triangle-right "></span> Administrador </a></li>
                 </ul>
               </li>

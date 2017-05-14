@@ -1,0 +1,29 @@
+.content-market{
+    border: 1px solid #eaeaea;
+    width: 90%;
+    margin: 3em auto;
+    height: 400px;
+    background-color: rgba(51, 122, 183, .2);
+    box-shadow: 0px 0px 10px #777;
+    border-radius: 0px 0px 15px 15px;
+}
+
+.header-market{
+    height: 50px;
+    background: rgba(51, 122, 183, .7);
+    font-family: "times";
+    color: white;
+    font-size: 4em;
+    text-align: center;
+    padding-bottom: 1.3em;
+}
+
+.box-market > div{
+    width: 90%;
+    padding: .5em;
+    margin: 0px auto;
+    font-size: 1.2em;
+    color: #555;
+}
+
+

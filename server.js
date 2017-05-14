@@ -15,7 +15,7 @@ app.use(bodyParser());
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '',
+  password: '12345',
   database: 'market'
 });
 
