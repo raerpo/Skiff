@@ -14,6 +14,10 @@ function getBoxes(){
     return $.getJSON('/data/fvht3sd120980ksd881s');
 }
 
+function getAllturns(){
+    return $.getJSON('/turns/frsdkff2apod9983');
+}
+
 function filterForTakenTurns(data, taken){
     const id = `${data.id_d}-${data.id_h}`;
 
@@ -23,6 +27,39 @@ function filterForTakenTurns(data, taken){
         }
     };
     return true;
+};
+
+function countTurns(turns) {
+    let countTurns = [];
+    let totalTurns = turns.map(data => data.id_day+"-"+data.id_hour);
+
+    for(var i = 0; i < turns.length; i++){
+        var interCount = 0;
+        countTurns.push(totalTurns[i]);
+        totalTurns[i] = null;
+        for(var e = 0; e < turns.length; e++){
+            interCount = interCount + 1;
+            if(totalTurns.indexOf(countTurns[i]) != -1){
+                interCount = interCount + 1;
+                countTurns[i] = countTurns[i]+"-"+interCount;
+                totalTurns[totalTurns.indexOf(countTurns[i])] = null;
+            }
+        }
+    }   
+
+    console.log("countTurns " , countTurns);
+    
+    console.log("turns " , turns);
+
+
+    // const allTurns = turns.map(data => data.id_day+"-"+data.id_hour);
+
+    // for(var i = 0; i < allTurns.length; i++){
+    //     var element = turns[i].id_day+"-"+turns[i].id_hour;
+    //     for(var e = 0; e <= allTurns.length; e++){
+    //         console.log(allTurns.indexOf(element));
+    //     }
+    // }
 };
 
 function addClassSelected(data, selected){
@@ -64,6 +101,7 @@ class TakeTurns extends React.Component {
     		elements : [],
             takenTurns: [],
             selectedTurns : [],
+            allTurns: [],
             boxes: 0 
 	    };
 
@@ -76,6 +114,7 @@ class TakeTurns extends React.Component {
 		getDataTurns().then(data => this.setState({ elements : data }));
         getTurnMarket().then(data => this.setState({ takenTurns : data }));
         getBoxes().then(boxes => this.setState({ boxes }));
+        getAllturns().then(turn => this.setState({ allTurns : turn }));
 	};
 
     sendDataDB(data){
@@ -103,6 +142,9 @@ class TakeTurns extends React.Component {
     };
 
     render(){
+
+        const countAllTurns = countTurns(this.state.allTurns);
+
         return (
         <div>
             <h2 className="title-take-turns">Turnos disponibles</h2>

@@ -15,7 +15,7 @@ app.use(bodyParser());
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '',
+  password: '12345',
   database: 'market'
 });
 
@@ -296,7 +296,15 @@ app.get('/data/w9rie82jfns8fgd82ks' , function(req, res){
 
 // getTurnForIdSupermarket
 app.get('/data/kdfkjg82s02kkd9337f' , function(req, res){
-	const query = `SELECT * FROM turns WHERE id_superMarket = ${req.session.market} AND id_user = '${req.session.user}'`;
+	const query = `SELECT * FROM turns WHERE id_superMarket=${req.session.market} AND id_user='${req.session.user}'`;
+	connection.query(query , function(err, results){
+		res.json(results);
+	})
+})
+
+// get all turns of superMarket
+app.get('/turns/frsdkff2apod9983' , function(req, res){
+	const query = `SELECT id_day, id_hour FROM turns WHERE id_superMarket=${req.session.market}`;
 	connection.query(query , function(err, results){
 		res.json(results);
 	})

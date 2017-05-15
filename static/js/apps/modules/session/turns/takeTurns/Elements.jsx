@@ -1,7 +1,6 @@
 import React from 'react';
 import Day from './Day';
 
-
 class Elements extends React.Component {
 
     render(){
