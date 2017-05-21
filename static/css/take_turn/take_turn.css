@@ -1,9 +1,10 @@
 .hours{
 	display: inline-flex;
-	border: 2px solid #eaeaea;
+	border: 1px solid #eaeaea;
 	padding: 1em;
 	margin-right: .2em;
 	border-radius: 10px;
+	box-shadow: 0px 0px 10px #10291b;
 }
 
 .hours:hover{
@@ -15,6 +16,8 @@
 	background-color: rgba(68, 157, 68, .7);
 	border-color: #398439;
 	color: white;
+	border: 1px solid #769676;
+	box-shadow: 0px 0px 10px #10291b;
 }
 
 .noSelected{
@@ -59,11 +62,11 @@
 }
 
 .warning{
-	background-color: rgba(245, 233, 170, .4);
+	background-color: rgba(209, 212, 29, .3);
 	border: 1px solid #d6cea1;
 }	
 
 .danger{
-	background-color: rgba(241, 137, 137, .3);
-	border: 1px solid #ca7575
+	background-color: rgba(255, 20, 20, .6);
+	border: 1px solid #c5a0a0
 }
