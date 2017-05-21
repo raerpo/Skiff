@@ -75,7 +75,6 @@ function generateSendDAta(data){
 
 
 class TakeTurns extends React.Component {
-
 	constructor(props){
 		super(props);
 
@@ -86,10 +85,7 @@ class TakeTurns extends React.Component {
             allTurns: [],
             boxes: 0 
 	    }
-
-        this.getInfoElement = this.getInfoElement.bind(this);
-        this.unSelectElement = this.unSelectElement.bind(this);
-
+        this.onActionHour = this.onActionHour.bind(this);
     }
 
 	componentWillMount(){
@@ -105,22 +101,21 @@ class TakeTurns extends React.Component {
         window.location.href = '/turns/view';
     }
 
-    getInfoElement(day , hour){
-        this.setState({ 
-            selectedTurns: this.state.selectedTurns
-            .concat({ 
-                day, hour
-            })
-        });
-    }
-
-    unSelectElement(day, hour){
+    onActionHour(day, hour, selected){
         const id = `${day}-${hour}`;
 
-        const selectedTurns = this.state.selectedTurns
-            .filter(data => `${data.day}-${data.hour}` != id);
-
-        this.setState({ selectedTurns });
+        if(selected === "noSelected"){
+             this.setState({ 
+                selectedTurns: this.state.selectedTurns
+                .concat({ 
+                    day, hour
+                })
+            });
+        }else{
+            const selectedTurns = this.state.selectedTurns
+                .filter(data => `${data.day}-${data.hour}` != id);
+            this.setState({ selectedTurns });
+        }
     }
 
     render(){
@@ -132,11 +127,10 @@ class TakeTurns extends React.Component {
             <h2 className="title-take-turns">Turnos disponibles</h2>
         	<div className="content-take-turns listDays"> 
                 <Elements 
-                getInfo={ this.getInfoElement } 
-                unSelectElement={ this.unSelectElement } 
                 rawData={this.state.elements} 
                 data={ generateSendDAta(this.state) } 
                 statusTurns={countAllTurns}
+                onActionHour={this.onActionHour}
                 boxes={this.state.boxes} />
                 <input className="btn btn-success send-turns" onClick={ (i) => this.sendDataDB(this.state.selectedTurns) } type="button" value="Tomar turnos" />
         	</div>	
