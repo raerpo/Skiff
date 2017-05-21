@@ -29,6 +29,14 @@
 	font-size: 20px;
 }
 
+.panel-title a:hover{
+	text-decoration: none;
+}
+
+.panel-title a{
+	text-decoration: none;
+}
+
 .content-take-turns{
 	width: 70%;
 
@@ -51,11 +59,11 @@
 }
 
 .warning{
-	background-color: #f5e9aa;
-	border: 1px solid #e6d265;
-}
+	background-color: rgba(245, 233, 170, .4);
+	border: 1px solid #d6cea1;
+}	
 
 .danger{
-	background-color: #f18989;
-	border: 1px solid #dc5f5f;
+	background-color: rgba(241, 137, 137, .3);
+	border: 1px solid #ca7575
 }
