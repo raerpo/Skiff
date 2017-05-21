@@ -27,40 +27,22 @@ function filterForTakenTurns(data, taken){
         }
     };
     return true;
-};
+}
+
+function hoursEquals(number, turns){
+    return turns.filter(turn => turn.id_day+"-"+turn.id_hour === number).length;
+}
 
 function countTurns(turns) {
-    let countTurns = [];
-    let totalTurns = turns.map(data => data.id_day+"-"+data.id_hour);
-
-    for(var i = 0; i < turns.length; i++){
-        var interCount = 0;
-        countTurns.push(totalTurns[i]);
-        totalTurns[i] = null;
-        for(var e = 0; e < turns.length; e++){
-            interCount = interCount + 1;
-            if(totalTurns.indexOf(countTurns[i]) != -1){
-                interCount = interCount + 1;
-                countTurns[i] = countTurns[i]+"-"+interCount;
-                totalTurns[totalTurns.indexOf(countTurns[i])] = null;
-            }
-        }
-    }   
-
-    console.log("countTurns " , countTurns);
+    var turnsEquals = [];
     
-    console.log("turns " , turns);
-
-
-    // const allTurns = turns.map(data => data.id_day+"-"+data.id_hour);
-
-    // for(var i = 0; i < allTurns.length; i++){
-    //     var element = turns[i].id_day+"-"+turns[i].id_hour;
-    //     for(var e = 0; e <= allTurns.length; e++){
-    //         console.log(allTurns.indexOf(element));
-    //     }
-    // }
-};
+    for(var i = 0; i < turns.length; i++){
+        turnsEquals.push(
+            turns[i].id_day+"-"+turns[i].id_hour + "&" +hoursEquals(turns[i].id_day+"-"+turns[i].id_hour, turns
+        ));
+    }
+    return turnsEquals;
+}
 
 function addClassSelected(data, selected){
     const id = `${data.id_d}-${data.id_h}`;
@@ -89,7 +71,7 @@ function generateSendDAta(data){
     return elements
         .filter(data => filterForTakenTurns(data, takenTurns))
         .map(data => addClassSelected(data, selectedTurns));
-};
+}
 
 
 class TakeTurns extends React.Component {
@@ -103,19 +85,19 @@ class TakeTurns extends React.Component {
             selectedTurns : [],
             allTurns: [],
             boxes: 0 
-	    };
+	    }
 
         this.getInfoElement = this.getInfoElement.bind(this);
         this.unSelectElement = this.unSelectElement.bind(this);
 
-    };	
+    }
 
 	componentWillMount(){
 		getDataTurns().then(data => this.setState({ elements : data }));
         getTurnMarket().then(data => this.setState({ takenTurns : data }));
         getBoxes().then(boxes => this.setState({ boxes }));
         getAllturns().then(turn => this.setState({ allTurns : turn }));
-	};
+	}
 
     sendDataDB(data){
         alert('turnos tomados correctamente');
@@ -130,7 +112,7 @@ class TakeTurns extends React.Component {
                 day, hour
             })
         });
-    };
+    }
 
     unSelectElement(day, hour){
         const id = `${day}-${hour}`;
@@ -139,7 +121,7 @@ class TakeTurns extends React.Component {
             .filter(data => `${data.day}-${data.hour}` != id);
 
         this.setState({ selectedTurns });
-    };
+    }
 
     render(){
 
@@ -149,7 +131,13 @@ class TakeTurns extends React.Component {
         <div>
             <h2 className="title-take-turns">Turnos disponibles</h2>
         	<div className="content-take-turns listDays"> 
-                <Elements getInfo={ this.getInfoElement } unSelectElement={ this.unSelectElement } rawData={this.state.elements} data={ generateSendDAta(this.state) } />
+                <Elements 
+                getInfo={ this.getInfoElement } 
+                unSelectElement={ this.unSelectElement } 
+                rawData={this.state.elements} 
+                data={ generateSendDAta(this.state) } 
+                statusTurns={countAllTurns}
+                boxes={this.state.boxes} />
                 <input className="btn btn-success send-turns" onClick={ (i) => this.sendDataDB(this.state.selectedTurns) } type="button" value="Tomar turnos" />
         	</div>	
             <Footer typeFooter={"2"} />

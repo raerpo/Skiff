@@ -6,7 +6,15 @@ class Day extends React.Component {
     render(){
     	const hours = this.props.data
     		.filter(data => data.id_d == this.props.position)
-    		.map((data, index) => <Hour key={`hour${index}`} getInfo={ this.props.getInfo } unSelectElement={ this.props.unSelectElement } data={data} />)
+    		.map((data, index) => 
+			(
+				<Hour key={`hour${index}`} 
+				getInfo={ this.props.getInfo } 
+				unSelectElement={ this.props.unSelectElement } 
+				data={data} 
+				statusTurns={this.props.statusTurns} 
+				boxes={this.props.boxes} />)
+			);	
 
     	return (
         	<div>
