@@ -49,3 +49,13 @@
 	border: 1px solid #eaeaea !important;
 	border-radius: 15px !important;
 }
+
+.warning{
+	background-color: #f5e9aa;
+	border: 1px solid #e6d265;
+}
+
+.danger{
+	background-color: #f18989;
+	border: 1px solid #dc5f5f;
+}
