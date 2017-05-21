@@ -1,25 +1,27 @@
 import React from 'react';
 import Day from './Day';
 
-class Elements extends React.Component {
+const Elements = ({
+	rawData,
+	data, 
+	onActionHour, 
+	statusTurns, 
+	boxes
+}) => {
+	const days = rawData
+		.filter(element => element.id_h == 0)
+		.map((day , index) =>
+			<Day key={index} 
+			position={index}
+			data={data} 
+			collapse={`collapse${index + 1}`} 
+			name={day.name} 
+			onActionHour={onActionHour}
+			statusTurns={statusTurns} 
+			boxes={boxes} />
+		);
 
-    render(){
-
-    	const days = this.props.rawData
-    		.filter(data => data.id_h == 0)
-    		.map((data , index) =>
-    			<Day key={`day${index}`} 
-				getInfo={ this.props.getInfo } 
-				unSelectElement={ this.props.unSelectElement } 
-				position={index} data={this.props.data} 
-				collapse={`collapse${index + 1}`} 
-				name={data.name} 
-				statusTurns={this.props.statusTurns} 
-				boxes={this.props.boxes} />
-    		)
-
-        return <div className="panel-group" id="accordion">{ days }</div>
-    }
+	return <div className="panel-group" id="accordion">{ days }</div>
 }
 
 export default Elements;
