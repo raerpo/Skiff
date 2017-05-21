@@ -6,9 +6,7 @@ class Contact extends React.Component {
 	render(){
 		return (
 			<div>
-				<div className="content">
-					<NoAvailable />
-				</div>
+				<h1 className="test">Contactanos</h1>
 				<Footer 
 				typeFooter={'1'} />
 			</div>
