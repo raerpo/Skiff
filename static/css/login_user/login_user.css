@@ -9,7 +9,8 @@
 }
 
 #login-modal .modal-dialog , #login-modal-admin .modal-dialog{
-    width: 350px;
+    width: 310px;
+    margin: 0px auto;
 }
 
 #login-modal input[type=text], input[type=password] {
@@ -88,6 +89,20 @@
     outline: 0;
 }
 
+.mod-cont-admin{
+    background-color: rgba(51, 122, 183, .8);
+}
+
+.mod-cont-admin .btn-primary{
+    box-shadow: 0px 0px 2px white inset;
+}
+
+.mod-cont-admin a,
+.mod-cont-admin button,
+.mod-cont-admin span {
+        color: white;
+}
+
 .modal-header {
     min-height: 16.43px;
     padding: 15px 15px 15px 15px;
@@ -154,18 +169,17 @@
 .modal-content{
     border-radius: 10px;
     margin-top: 100px;
-    margin-left: -10px;
 }
 
 
 #login-modal .modal-content{
-    box-shadow: 0px 0px 40px white; 
+    box-shadow: 0px 0px 40px white;
 }
 
 
 #login-modal-admin .modal-content{
-    box-shadow: 0px 0px 40px #00b0d9; 
-    color: #00b0d9;
+    box-shadow: 0px 0px 40px #d9edf7;
+    color: #350922;
     font-size: 18px;
 /*    background-color: #111;*/
 /*    color: white;*/
@@ -173,8 +187,8 @@
 
 #login-modal-admin .modal-header img{
     padding: .3em;
-    background-color: white;
-    box-shadow: 0px 0px 10px #00b0d9 inset; 
+    background-color: #333;
+    box-shadow: 0px 0px 20px #350922;
 }
 
 /*#login-modal-admin img{
