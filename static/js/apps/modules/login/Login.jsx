@@ -13,9 +13,9 @@ class Login extends React.Component {
                                 <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
                             </button>
                         </div>
-            
+
                         <div id="div-forms">
-                        
+
                             <form id="login-form" action="session" method="post">
                                 <div className="modal-body">
                                     <div id="div-login-msg">
@@ -34,23 +34,23 @@ class Login extends React.Component {
                                         <button type="button" className="btn btn-link"><a href="/register">Registrarse</a></button>
                                     </div>
                                 </div>
-                            </form>                        
-                        </div>   
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
             <div className="modal fade" id="login-modal-admin"  role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
                 <div className="modal-dialog">
-                    <div className="modal-content">
+                    <div className="modal-content mod-cont-admin">
                         <div className="modal-header">
-                            <img className="img-circle" id="img_logo" src="./static/images/icono_ct_gold.png" />
+                            <img className="img-circle" id="img_logo" src="./static/images/icono_ct_white.png" />
                             <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                 <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
                             </button>
                         </div>
-            
+
                         <div id="div-forms">
-                        
+
                             <form id="login-form" action="/admin/session" method="post">
                                 <div className="modal-body">
                                     <div id="div-login-msg">
@@ -69,8 +69,8 @@ class Login extends React.Component {
                                         <button type="button" className="btn btn-link"><a href="/register">Registrarse</a></button>
                                     </div>
                                 </div>
-                            </form>                        
-                        </div>   
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
