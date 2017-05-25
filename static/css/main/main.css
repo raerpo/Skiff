@@ -36,7 +36,7 @@
 	width: 42px;
 	height: 42px;
 	display: inline-block;
-	align-items: center;	
+	align-items: center;
 	border-radius: 50%;
 	overflow: hidden;
 	padding: .2em;
@@ -52,7 +52,7 @@
 	transform: scale(1.1);
 	transition: transform .2s ease-out;
 	background-color: black;
-	opacity: 1;	
+	opacity: 1;
 }
 
 
@@ -81,7 +81,7 @@
 	}
 	.index-navbar-hidden a{
 		color: #9d9d9d;
-		text-decoration:none;   
+		text-decoration:none;
 	}
 	.index-navbar-hidden:hover{
 		color: white;
@@ -121,7 +121,7 @@
 	}
 
 	.sectionPers{
-		width: 100% !important;	
+		width: 100% !important;
 		margin: 0px !important;
 	}
 
@@ -145,9 +145,9 @@
 		padding: 0px !important;
 		margin: 0px !important;
 		text-align: center !important;
-		
+
 	}
-	
+
 	.row-worked > div{
 		padding: 0px !important;
 		margin: 0px !important;
@@ -209,7 +209,7 @@
 	background-color: #222;
 	margin-top: 2em;
 	position: absolute;
-	bottom: -1px;
+	bottom: 0px;
 }
 
 .social-img-footer{
@@ -238,7 +238,7 @@
 }
 
 .panel-default{
-	border-color: white !important; 
+	border-color: white !important;
 }
 
 

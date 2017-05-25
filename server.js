@@ -123,7 +123,7 @@ app.post('/session' , function(req, res){
 			    res.redirect('/home');
 			}else{
 				res.redirect('/');
-			}	
+			}
 		}
 	})
 })
@@ -143,7 +143,7 @@ app.post('/register/createAccount', function(req, res){
 		});
 	})
 
-	
+
 })
 
 app.get('/contact', (req, res) => res.render('index'));
@@ -274,12 +274,12 @@ app.get('/turns/viewAll', function(req, res){
 
 app.get('/turns/change', function(req, res){
 	redicForUser(req, res);
-});	
+});
 app.get('/settings', function(req, res){
 	redicForUser(req, res);
 });
 
-app.get('/exit', function(req, res){ 	
+app.get('/exit', function(req, res){
 	req.session = null;
 	res.redirect('/index');
 });
@@ -322,7 +322,7 @@ app.get('/data/fvht3sd120980ksd881s', function(req, res){
 
 // getTurnsToView
 app.get('/data/jj8dd1scsa82jsass224', function(req, res){
-	const query =  `SELECT name, value FROM days, hours, turns 
+	const query =  `SELECT name, value FROM days, hours, turns
 					WHERE turns.id_user='${req.session.user}'
 					AND days.id_d=turns.id_day
 					AND hours.id_h=turns.id_hour`;
@@ -340,12 +340,18 @@ app.get('/data/cxcdjewikkd2k34kk56kkfssh' , function(req, res){
 	const secondNow = dateNow.getSeconds();
 
 	const user = req.session.user;
-	var hour = 0;
+	var hour = null;
 	var numberDay = (dateNow.getDay() - 1);
 	if(numberDay == -1) numberDay = 6;
 	const hours = [[8,10], [10,12], [12,14], [14,16], [16,18], [18,20], [20, 22]]
 
-	for(var i = 0;i < hours.length; i++){ if(hourNow >= hours[i][0] && hourNow < hours[i][1]) hour = i;	}
+	for (var i = 0;i < hours.length; i++){
+    if (hourNow >= hours[i][0] && hourNow < hours[i][1]){
+      console.log(i);
+      hour = i;
+    }
+  };
+
 	const query = `SELECT user.name, lastName, value FROM user, turns, hours
 			WHERE turns.id_hour=${hour}
 			AND turns.id_day=${numberDay}
@@ -382,16 +388,19 @@ app.get('/data/user/jdqwerdfisllediifkwuyh', function(req, res){
 
 // get all turns
 app.get('/data/turns/k82rjhsd8883kfdsss', function(req, res){
-	const query = `SELECT 
-				   user.name, 
-				   user.lastName,
-				   days.name as nameDay,
-				   hours.value
-                   FROM turns, days, hours, user
-                   WHERE days.id_d=turns.id_day 
-                   AND hours.id_h=turns.id_hour
-                   AND user.rut=turns.id_user
-                   AND id_superMarket=${req.session.market}`;
+	const query = `SELECT
+                          user.name,
+                          user.lastName,
+                          days.name as nameDay,
+                          days.id_d,
+                          hours.id_h,
+                          hours.value
+                          FROM turns, days, hours, user
+                          WHERE days.id_d=turns.id_day
+                          AND hours.id_h=turns.id_hour
+                          AND user.rut=turns.id_user
+                          AND id_superMarket=${req.session.market}
+                          ORDER BY  days.id_d, hours.id_h ASC`;
 
 	connection.query(query, function(err, results){
 		res.json(results);

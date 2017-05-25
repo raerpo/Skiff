@@ -21,15 +21,28 @@ class ViewTurns extends React.Component {
 
     render(){
 
+      let nameDay = null;
     	const turn = this.state.elements
-    		.map((data, index) => <InfoTurn key={`element${index}`} data={data} />);
+    		.map((data, index) =>{
+           let diference = nameDay === data.name ? null : (<hr key={`key-${index}`} />)
+          nameDay = data.name;
+           return(
+             <div  key={index}>
+                {diference}
+                <InfoTurn
+                  data={data} />
+              </div>
+            )
+        }
+
+        );
 
         return (
-        	<div className="content-info-turns">          
+        	<div className="content-info-turns">
                 <div className="content-view-turns-head">
                     <div className="view-turns-head">Día</div>
                     <div className="view-turns-head">Hora</div>
-                </div>                  
+                </div>
     			    { turn }
     		</div>
         )
