@@ -8,11 +8,11 @@ class Home extends React.Component {
         return (
             <div>
         	<div className="home">
-        		<SectionMain />
+        		<SectionMain
+            url={"static/images/sleep_cat2.gif"}/>
         		<RigthMenu />
         	</div>
-                <Footer 
-				typeFooter={'1'} />
+                <Footer	typeFooter={'2'} />
             </div>
         )
     }

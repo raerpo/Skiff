@@ -39,14 +39,20 @@ class viewAllTurns extends Component {
     render(){
         const allTurns = this.state.turns;
 
-        const turns = allTurns.length > 0 
-        ? allTurns.map((turn, index) =>  (
-                <Turn 
+        let nameDay = null;
+        const turns = allTurns.length > 0
+        ? allTurns.map((turn, index) =>  {
+          let diference = nameDay === turn.nameDay ? null : (<hr key={`key-${index}`} />)
+          nameDay = turn.nameDay;
+          return(
+          <div key={index}>
+              {diference}
+                <Turn
                 name={turn.name}
                 lastName={turn.lastName}
                 nameDay={turn.nameDay}
-                value={turn.value} 
-                key={index}/> ))
+                value={turn.value} />
+        </div>  )})
         : <NoTurns />
 
         return (
