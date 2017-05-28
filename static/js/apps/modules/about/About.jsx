@@ -7,7 +7,7 @@ class About extends React.Component {
 		const jp = 1;
 		return (
 			<div>
-				<div className="container">
+				<div className="about-container">
 					<h3 className="titles">Quiénes Somos</h3>
 					<p className="paragraph">Lorem ipsum dolor sit amet, consectetur
 					 adipiscing elit. Vestibulum non ipsum sed 
