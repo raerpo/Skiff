@@ -87,8 +87,6 @@ ALTER TABLE admin ADD CONSTRAINT admin_fk1 FOREIGN KEY(id_market) REFERENCES sup
 ALTER TABLE user ADD CONSTRAINT user_fk1 FOREIGN KEY(id_market) REFERENCES superMarket(id);
 
 ALTER TABLE admin_superMarket ADD CONSTRAINT admin_superMarket_fk1 FOREIGN KEY(rut_admin) REFERENCES admin(rut);
-
---TO DO WITH SEBA.
 ALTER TABLE admin_superMarket ADD CONSTRAINT admin_superMarket_fk2 FOREIGN KEY(id_market) REFERENCES superMarket(id);
 
 ALTER TABLE admin_user ADD CONSTRAINT admin_user_fk1 FOREIGN KEY(rut_admin) REFERENCES admin(rut);
