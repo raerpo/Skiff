@@ -1,4 +1,7 @@
-import { Model } from 'objection';
+const Model = require('objection').Model;
+const connection = require('../config/database');
+
+Model.knex(connection);	
 
 class Admin extends Model {
 	static get tableName() {
@@ -27,18 +30,18 @@ class Admin extends Model {
 				keygen: { type: 'string', minLength: 1, maxLength: 8 },
 				type: { type: 'integer' },
 				statusAccount: { type: 'integer'},
-				id_work: { type: 'integer' }
+				work_id: { type: 'integer' }
 			}
 		}
 	}
 
 	static get relationMappings() {
 		return {
-			id_work: {
+			work_id: {
 				relation: Model.HasManyRelation,
 				modelClass: __dirname + '/Work',
 				join: {
-					from: 'admin.id_work',
+					from: 'admin.work_id',
 					to: 'work.id'
 				}
 			}

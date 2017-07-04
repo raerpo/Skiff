@@ -1,4 +1,7 @@
-import { Model } from 'objection';
+const Model = require('objection').Model;
+const connection = require('../config/database');
+
+Model.knex(connection); 
 
 class Hour extends Model {
 	static get tableName() {

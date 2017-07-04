@@ -1,4 +1,7 @@
-import { Model } from 'obejction';
+const Model = require('objection').Model;
+const connection = require('../config/database');
+
+Model.knex(connection);
 
 class Work extends Model {
 	static get tableName() {

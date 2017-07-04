@@ -1,4 +1,7 @@
-import { Model } from 'objection';
+const Model = require('objection').Model;
+const connection = require('../config/database');
+
+Model.knex(connection);
 
 class Turn extends Model {
 	static get tableName() {
@@ -10,48 +13,48 @@ class Turn extends Model {
 			type: 'object',
 
 			properties: {
-				id_user: { type: 'string', minLength: 1, maxLength: 14 },
-				id_hour: { type: 'integer' },
-				id_day: { type: 'integer' },
-				id_work: {type: 'integer' }
+				user_id: { type: 'string', minLength: 1, maxLength: 14 },
+				hour_id: { type: 'integer' },
+				day_id: { type: 'integer' },
+				work_id: {type: 'integer' }
 			}
 		}
 	}
 
   static get relationMappings() {
     return {
-      id_user: {
+      user_id: {
         relation: Model.HasManyRelation,
         modelClass: __dirname + '/User',
         join: {
-          from: 'turn.id_user',
+          from: 'turn.user_id',
           to: 'user.rut'
         }
       },
 
-      id_hour: {
+      hour_id: {
         relation: Model.HasManyRelation,
         modelClass: __dirname + '/Hour',
         join: {
-          from: 'turn.id_hour',
+          from: 'turn.hour_id',
           to: 'hour.id_h'
         }
       },
 
-      id_day: {
+      day_id: {
         relation: Model.HasManyRelation,
         modelClass: __dirname + '/Day',
         join: {
-          from: 'turn.id_day',
+          from: 'turn.day_id',
           to: 'day.id_d'
         }
       },
 
-      id_work: {
+      work_id: {
         relation: Model.HasManyRelation,
         modelClass: __dirname + '/Work',
         join: {
-          from: 'turn.id_work',
+          from: 'turn.work_id',
           to: 'work.id'
         }
       }

@@ -1,8 +1,11 @@
-import { Model } from 'objection';
+const Model = require('objection').Model;
+const connection = require('../config/database');
+
+Model.knex(connection);
 
 class UserWork extends Model {
 	static get tableName() {
-		return 'user_work';
+		return 'userWork';
 	}
 
 	static get jsonSchema() {
@@ -10,28 +13,28 @@ class UserWork extends Model {
 			type: 'object',
 
 			properties: {
-				rut_user: { type: 'string', minLength: 1, maxLength: 10 },
-				id_work: { type: 'integer' }
+				user_rut: { type: 'string', minLength: 1, maxLength: 10 },
+				work_id: { type: 'integer' }
 			}
 		}
 	}
 
   static get relationMappings() {
     return {
-      rut_user: {
+      user_rut: {
         relation: Model.HasManyRelation,
         modelClass: __dirname + '/User',
         join: {
-          from: 'userWork.rut_user',
+          from: 'userWork.user_rut',
           to: 'user.rut'
         }
       },
 
-      id_work: {
+      work_id: {
         relation: Model.HasManyRelation,
         modelClass: __dirname + '/Work',
         join: {
-          from: 'userWork.id_work',
+          from: 'userWork.work_id',
           to: 'work.id'
         }
       }

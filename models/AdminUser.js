@@ -1,4 +1,7 @@
-import { Model } from 'objection';
+const Model = require('objection').Model;
+const connection = require('../config/database');
+
+Model.knex(connection); 
 
 class AdminUser extends Model {
 	static get tableName() {
@@ -10,8 +13,8 @@ class AdminUser extends Model {
 			type: 'object',
 
 			properties: {
-				rut_admin: { type: 'string', minLength: 1, maxLength: 10 },
-				rut_user: { type: 'string', minLength: 1, maxLength: 10 },
+				admin_rut: { type: 'string', minLength: 1, maxLength: 10 },
+				user_rut: { type: 'string', minLength: 1, maxLength: 10 },
 				action: { type: 'string', minLength: 1, maxLength: 255 }
 			}
 		}
@@ -19,20 +22,20 @@ class AdminUser extends Model {
 
   static get relationMappings() {
     return {
-      rut_admin: {
+      admin_rut: {
         relation: Model.HasOneRelation,
         modelClass: __dirname + '/Admin',
         join: {
-          from: 'adminUser.rut_admin',
+          from: 'adminUser.admin_rut',
           to: 'admin.rut'
         }
       },
 
-      rut_user: {
+      user_rut: {
         relation: Model.HasManyRelation,
         modelClass: __dirname + '/User',
         join: {
-          from: 'adminUser.rut_user',
+          from: 'adminUser.user_rut',
           to: 'user.rut'
         }
       }

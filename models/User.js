@@ -1,4 +1,8 @@
-import { Model } from 'objection';
+const Model = require('objection').Model;
+const connection = require('../config/database');
+
+Model.knex(connection);
+
 
 class User extends Model {
 	static get tableName() {
@@ -23,18 +27,18 @@ class User extends Model {
 				avaibleDays: { type: 'integer' },
 				type: { type: 'integer' },
 				statusAccount: { type: 'integer' },
-				id_work: { type: 'integer' }
+				work_id: { type: 'integer' }
 			}
 		}
 	}
 
 	static get relationMappings() {
     return{
-      id_work:{
+      work_id:{
         relation: Model.HasManyRelation,
         modelClass: __dirname + '/Work',
         join: {
-          from: 'user.id_work',
+          from: 'user.work_id',
           to: 'work.id'
         }
       }
