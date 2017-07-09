@@ -28,23 +28,23 @@ const history = useRouterHistory(createHistory)({
 });
 
 ReactDOM.render(
-    <Router history={ browserHistory }>     
+    <Router history={ browserHistory }>
         <Route path="/" component={ Index }>
-            <Route path="/index" component={ IndexPage } />
+            <Route path="/home" component={ IndexPage } />
             <Route path="/login" component={ Login } />
             <Route path="/contact" component={ Contact } />
             <Route path="/about" component={ About } />
             <Route path="/admin/login" component={ Admin } />
             <Route path="/register" component={ Register } />
         </Route>
-        <Route path="/session" component={ PageUser } >
-            <Route path="/home" component={ Home } />
-            <Route path="/turns/take" component={ TakeTurns } />
-            <Route path="/turns/view" component={ ViewTurns } />
-            <Route path="/turns/viewAll" component={ ViewAllTurns } />
-            <Route path="/turns/change" component={ ChangeTurns } />
-            <Route path="/settings" component={ Settings } />
-            <Route path="/exit" />            
+        <Route path="/worker" component={ PageUser } >
+            <Route path="/worker/home" component={ Home } />
+            <Route path="/worker/turns/take" component={ TakeTurns } />
+            <Route path="/worker/turns/view" component={ ViewTurns } />
+            <Route path="/worker/turns/viewAll" component={ ViewAllTurns } />
+            <Route path="/worker/turns/change" component={ ChangeTurns } />
+            <Route path="/worker/settings" component={ Settings } />
+            <Route path="/exit" />
         </Route>
         <Route path="/admin" component={ PageAdmin }>
             <Route path="/admin/home" component={ HomeAdm } />
@@ -57,4 +57,3 @@ ReactDOM.render(
     </Router>,
     document.getElementById('app')
 );
-         

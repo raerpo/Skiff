@@ -1,4 +1,4 @@
-import React from 'react';	
+import React from 'react';
 import Formulary from './Formulary';
 import Footer from '../Footer';
 
@@ -40,7 +40,7 @@ class Register extends React.Component {
 		const psw1 = this.refs.Formulary.refs.inputPsw2.value;
 		const psw2 = this.refs.Formulary.refs.inputPsw1.value;
 		const email = this.refs.Formulary.refs.inputEmail.value;
-		const date = this.refs.Formulary.refs.inputDate.value;	
+		const date = this.refs.Formulary.refs.inputDate.value;
 		const country = this.refs.Formulary.refs.selectCountry.value;
 
 		if(this.state.keys.length > 0){
@@ -59,7 +59,7 @@ class Register extends React.Component {
 						password : psw1,
 						name,
 						lastName,
-						birth : date,					
+						birth : date,
 						phone,
 						email,
 						comune : "none",
@@ -67,9 +67,9 @@ class Register extends React.Component {
 						avaibleDays : null,
 						id_market : null,
 						type : 1,
-						statusAccount: 2,				
+						statusAccount: 2,
 					},
-					key : this.state.keys[0].keygen		
+					key : this.state.keys[0].keygen
 				});
 			}
 		}else{
@@ -78,7 +78,6 @@ class Register extends React.Component {
 		}
 
 	}
-
 
 	validation(){
 		const key = this.refs.Formulary.refs.inputKey.value;
@@ -90,7 +89,7 @@ class Register extends React.Component {
 		const psw1 = this.refs.Formulary.refs.inputPsw2.value;
 		const psw2 = this.refs.Formulary.refs.inputPsw1.value;
 		const email = this.refs.Formulary.refs.inputEmail.value;
-		const date = this.refs.Formulary.refs.inputDate.value;	
+		const date = this.refs.Formulary.refs.inputDate.value;
 		const country = this.refs.Formulary.refs.selectCountry.value;
 
 		const validateRut = /^(\d{1,2}(\.?\d{3}){2})\-([\dkK])$/;
@@ -170,7 +169,6 @@ class Register extends React.Component {
 			this.setState({ country : {newClass : "none"} });
 		}
 
-
 		if(date.length > 2){
 			if(validateDate.test(date)){
 				this.setState({ date : {newClass : "dataCorrect"} });
@@ -197,9 +195,9 @@ class Register extends React.Component {
 					classCountry={this.state.country.newClass}
 					classDate={this.state.date.newClass}
 					classKey={this.state.key.newClass}
-				/>	
+				/>
 			</div>
-			<Footer 
+			<Footer
 			typeFooter={'2'}
 			/>
 		</div>

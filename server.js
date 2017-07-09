@@ -1,69 +1,20 @@
+const express = require('express');
+const app = express();
+const api = require('./api');
+const Knex = require('knex');
+const knexConfig = require('./knexfile');
 const path = require('path');
 const consolidate = require('consolidate');
 const session = require('cookie-session');
-const express = require('express');
 const bodyParser = require('body-parser');
-const mysql = require('mysql');
-const app = express();
-const helmet = require('helmet');
+const objection = require('objection');
+const schedule = require('node-schedule');
 const date = new Date;
 const day = date.getDate();
-const schedule = require('node-schedule');
+const Model = require('objection').Model;
 
-app.use(helmet());
-app.use(bodyParser());
-
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '12345',
-  database: 'market'
-});
-
-connection.connect(function(err) {
-  if (err) throw err
-  console.log('You are now connected...')
-})
-
-const expiryDate = new Date( Date.now() + 60 * 60 * 1000 ); // 1 hour
-app.use(session({
-  name: 'Ms',
-  keys: ['key1', 'key2'],
-  cookie: { secure: true,
-            httpOnly: true,
-            domain: 'localhost',
-            path: '/',
-            expires: expiryDate
-        }
-  })
-);
-
-//redirect to home
-function redicForAdmin(req, res){
-	if(!req.session.user){
-		res.redirect('/');
-	}else{
-		if(req.session.type === 1){
-			res.redirect('/home');
-		}else{
-			res.render('session');
-		}
-	}
-}
-
-//redirect to admin/home
-function redicForUser(req, res){
-	if(!req.session.user){
-		res.redirect('/');
-	}else{
-		if(req.session.type === 0){
-			res.redirect('/admin/home');
-		}else{
-			res.render('session');
-		}
-	}
-}
-
+const knex = Knex(knexConfig.development);
+Model.knex(knex)
 
 app.engine('hbs', consolidate.handlebars);
 app.set('view engine', 'hbs');
@@ -71,12 +22,17 @@ app.set('views', path.join(__dirname, 'templates'));
 
 //middlewares
 app.use('/static', express.static('static'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+api(app);
 
-//default route
-app.get('/', (req, res) => res.redirect('/index'));
+const listener = app.listen(3000, () =>
+  console.log(`Running app on ${listener.address().address}${listener.address().port}`)
+);
 
-app.get('/index', (req, res) => res.render('index'));
-
+/*
 app.post('/admin/session' , function(req, res){
 	const query = 'SELECT * FROM admin';
 	const username = req.body.admin;
@@ -131,7 +87,6 @@ app.post('/session' , function(req, res){
 
 // if(!req.session.username){res.redirect("/")}
 // app.get('/login', (req, res) => res.render('index'));
-app.get('/register', (req, res) => res.render('index'));
 app.post('/register/createAccount', function(req, res){
 
 	connection.query(`SELECT avaibleDays, id_market FROM admin WHERE keygen='${req.body.key}'`, function(err, results){
@@ -147,8 +102,6 @@ app.post('/register/createAccount', function(req, res){
 
 })
 
-app.get('/contact', (req, res) => res.render('index'));
-app.get('/about', (req, res) => res.render('index'));
 // app.get('/admin/login' , (req, res) => res.render('index'));
 
 //session admin
@@ -429,7 +382,4 @@ app.get('/data/workers/j563238k9jkggfff4g', function(req, res){
 	});
 
 });
-
-const listener = app.listen(3000, () =>
-  console.log(`Running app on ${listener.address().address}${listener.address().port}`));
-//Test;
+*/

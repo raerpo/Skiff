@@ -1,7 +1,4 @@
 const Model = require('objection').Model;
-const connection = require('../config/database');
-
-Model.knex(connection); 
 
 class AdminUser extends Model {
 	static get tableName() {

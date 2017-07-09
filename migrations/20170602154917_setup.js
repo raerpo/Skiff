@@ -76,7 +76,7 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-  knex('day').insert({id_d: 0, name: 'Lunes', numberDay: 1})
-}; 
+
+};
 
 
