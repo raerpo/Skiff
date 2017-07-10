@@ -86,5 +86,3 @@ exports.down = function(knex, Promise) {
     .dropTableIfExist('userWork')
     .dropTableIfExist('work')
 };
-
-
