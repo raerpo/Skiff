@@ -46,12 +46,21 @@ module.exports = (app) => {
       .query()
       .where('rut' , '=', username)
       .andWhere('password', '=', password)
-      .then( result => {
-        console.log(result);
-      })
-      .catch(err => {
-        console.log('Datos incorrectos');
+      .then( hit => {
+        console.log(hit.length)
+        if(hit.length == 1){
+          req.session.user = hit[0].rut;
+          req.session.work = hit[0].work_id;
+          req.session.name = hit[0].name;
+          req.session.lastName = hit[0].lastName;
+          req.session.availableDays = hit[0].availableDays;
+          req.session.type = hit[0].type;
+          req.session.country = hit[0].country;
+          console.log(req.session);
+          // res.redirect('/admin/home');
+        }else{
+          console.log('Datos incorrectos');
+        }
       });
-  })
-
+    })
 }

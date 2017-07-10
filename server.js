@@ -44,14 +44,14 @@ app.post('/admin/session' , function(req, res){
    .filter(user => user.rut == username && user.password == password);
 
   if(hit.length == 1){
-   req.session.user = hit[0].rut;
-   req.session.market = hit[0].id_market;
-   req.session.name = hit[0].name;
-   req.session.lastName = hit[0].lastName;
-   req.session.avaibleDays = hit[0].avaibleDays;
-   req.session.type = hit[0].type;
-   req.session.country = hit[0].country;
-      res.redirect('/admin/home');
+    req.session.user = hit[0].rut;
+    req.session.market = hit[0].id_market;
+    req.session.name = hit[0].name;
+    req.session.lastName = hit[0].lastName;
+    req.session.avaibleDays = hit[0].avaibleDays;
+    req.session.type = hit[0].type;
+    req.session.country = hit[0].country;
+    res.redirect('/admin/home');
   }
   else{
    res.redirect('/');
