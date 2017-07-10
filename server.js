@@ -26,6 +26,22 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+
+const expiryDate = new Date( Date.now() + 60 * 60 * 1000 ); // 1 hour
+app.use(session({
+  name: 'Ms',
+  keys: ['key1', 'key2'],
+  cookie: {
+      secure: true,
+      httpOnly: true,
+      domain: 'localhost',
+      path: '/',
+      expires: expiryDate
+    }
+  })
+);
+
+
 api(app);
 
 const listener = app.listen(3000, () =>

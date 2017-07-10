@@ -21,7 +21,8 @@ module.exports = (app) => {
   app.post('/register/createAccount', (req, res) => {
     const data = req.body.data;
 
-    User.query()
+    User
+    .query()
     .insert({
       rut: data.rut,
       password: data.password,
@@ -46,8 +47,8 @@ module.exports = (app) => {
       .query()
       .where('rut' , '=', username)
       .andWhere('password', '=', password)
+      .andWhere('statusAccount', '=', 1)
       .then( hit => {
-        console.log(hit.length)
         if(hit.length == 1){
           req.session.user = hit[0].rut;
           req.session.work = hit[0].work_id;
@@ -56,11 +57,35 @@ module.exports = (app) => {
           req.session.availableDays = hit[0].availableDays;
           req.session.type = hit[0].type;
           req.session.country = hit[0].country;
-          console.log(req.session);
-          // res.redirect('/admin/home');
+          console.log('session usuario: ', req.session)
+          res.redirect('/worker/home');
         }else{
-          console.log('Datos incorrectos');
+          res.redirect('/')
         }
       });
+    })
+
+  app.post('/admin/session', (req, res) => {
+    const username = req.body.admin;
+    const password = req.body.password;
+
+    Admin
+      .query()
+      .where('rut', '=', username)
+      .andWhere('password', '=', password)
+      .then( hit => {
+        if(hit.length == 1){
+          req.session.user = hit[0].rut;
+          req.session.work = hit[0].work_id;
+          req.session.name = hit[0].name;
+          req.session.lastName = hit[0].lastName;
+          req.session.availableDays = hit[0].availableDays;
+          req.session.type = hit[0].type;
+          req.session.country = hit[0].country;
+          res.redirect('/admin/home');
+        }else{
+          res.redirect('/')
+        }
+      })
     })
 }
