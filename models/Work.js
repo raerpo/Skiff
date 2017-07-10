@@ -12,7 +12,7 @@ class Work extends Model {
 
 			properties: {
 				id: { type: 'integer' },
-				rut_admin: { type: 'string', minLength: 1, maxLength: 10 },
+				admin_rut: { type: 'string', minLength: 1, maxLength: 10 },
 				totalPlaces: { type: 'integer' },
 				comune: { type: 'string', minLength: 1, maxLength: 20 },
 				address: { type: 'string', minLength: 1, maxLength: 255 },
@@ -20,6 +20,19 @@ class Work extends Model {
 				type: { type: 'string', minLength: 1, maxLength: 20 }
 			}
 		}
+	}
+
+  static get relationMappings() {
+    return{
+      admin_rut:{
+        relation: Model.HasManyRelation,
+        modelClass: __dirname + '/Admin',
+        join: {
+          from: 'work.admin_rut',
+          to: 'admin.rut'
+        }
+      }
+    }
 	}
 }
 

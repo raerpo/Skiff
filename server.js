@@ -79,7 +79,7 @@ app.post('/session' , function(req, res){
 				req.session.type = hit[0].type;
 			    res.redirect('/home');
 			}else{
-				res.redirect('/');
+				res.redirecdatat('/');
 			}
 		}
 	})
@@ -92,7 +92,7 @@ app.post('/register/createAccount', function(req, res){
 	connection.query(`SELECT avaibleDays, id_market FROM admin WHERE keygen='${req.body.key}'`, function(err, results){
 		req.body.data.id_market = results[0].id_market;
 		req.body.data.avaibleDays = results[0].avaibleDays;
-		const data = req.body.data;
+		const data = req.body.;
 
 		connection.query('INSERT INTO user SET ?' , data , function (err, results, fields){
 			if (err) throw error;

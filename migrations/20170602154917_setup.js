@@ -1,82 +1,90 @@
 exports.up = function(knex, Promise) {
-  return Promise.all([
-  	knex.schema.createTable('admin', table => {
-  		table.string('rut', 10);
-  		table.string('password', 15);
-  		table.string('name', 15);
-  		table.string('lastName', 25);
-  		table.string('birth', 14);
-  		table.string('phone', 9);
-  		table.string('email', 30);
-  		table.string('comune', 30);
-  		table.string('country', 20);
-  		table.integer('avaibleDays');
-  		table.string('accountPlan', 20);
+  return knex.schema
+    .createTable('admin', function(table) {
+  		table.string('rut').primary();
+  		table.string('password');
+  		table.string('name');
+  		table.string('lastName');
+  		table.string('birth');
+  		table.string('phone');
+  		table.string('email');
+  		table.string('comune');
+  		table.string('country');
+  		table.integer('availableDays');
+  		table.string('accountPlan');
   		table.integer('accountPay');
   		table.integer('accountsAvaibles');
-  		table.string('keygen', 8);
+  		table.string('keygen');
   		table.integer('type');
   		table.integer('statusAccount');
   		table.integer('work_id').unsigned().references('id').inTable('work');
-  	}),
-    knex.schema.createTable('adminUser', table => {
-      table.string('admin_rut', 10).unsigned().references('rut').inTable('admin');
-      table.string('user_rut', 10).unsigned().references('rut').inTable('user');
-      table.string('action', 255);
-    }),
-    knex.schema.createTable('adminWork', table => {
-      table.string('admin_rut', 10).unsigned().references('rut').inTable('admin');
+  	})
+    .createTable('adminUser', function(table) {
+      table.string('admin_rut').unsigned().references('rut').inTable('admin');
+      table.string('user_rut').unsigned().references('rut').inTable('user');
+      table.string('action');
+    })
+    .createTable('adminWork', function(table) {
+      table.string('admin_rut').unsigned().references('rut').inTable('admin');
       table.integer('work_id').unsigned().references('id').inTable('work');
-      table.string('action', 255);
-    }),
-    knex.schema.createTable('day', table => {
-      table.integer('id_d');
-      table.string('name', 10);
+      table.string('action');
+    })
+    .createTable('day', function(table) {
+      table.integer('id_d').primary();
+      table.string('name');
       table.integer('numberDay');
-    }),
-    knex.schema.createTable('hour', table => {
-      table.integer('id_h');
-      table.string('value', 13);
-    }),
-    knex.schema.createTable('turn', table => {
-      table.string('user_id', 14).unsigned().references('rut').inTable('user');
+    })
+    .createTable('hour', function(table) {
+      table.integer('id_h').primary();
+      table.string('value');
+    })
+    .createTable('turn', function(table) {
+      table.string('user_id').unsigned().references('rut').inTable('user');
       table.integer('hour_id').unsigned().references('id_h').inTable('hour');
       table.integer('day_id').unsigned().references('id_d').inTable('day');
       table.integer('work_id').unsigned().references('id').inTable('work');
-    }),
-    knex.schema.createTable('user', table => {
-      table.string('rut', 10);
-      table.string('password', 15);
-      table.string('name', 15);
-      table.string('lastName', 25);
-      table.string('birth', 14);
-      table.string('phone', 9);
-      table.string('email', 30);
-      table.string('comune', 14);
-      table.string('country', 20);
-      table.integer('avaibleDays');
+    })
+    .createTable('user', function(table) {
+      table.string('rut').primary();
+      table.string('password');
+      table.string('name');
+      table.string('lastName');
+      table.string('birth');
+      table.string('phone');
+      table.string('email');
+      table.string('comune');
+      table.string('country');
+      table.integer('availableDays');
       table.integer('type');
       table.integer('statusAccount');
       table.integer('work_id').unsigned().references('id').inTable('work');
-    }),
-    knex.schema.createTable('userWork', table => {
-      table.string('user_rut', 10).unsigned().references('rut').inTable('user');
-      table.integer('work_id').unsigned().references('id').inTable('work');
-    }),
-    knex.schema.createTable('work', table => {
-      table.increments('id');
-      table.string('admin_rut', 10).unsigned().references('rut').inTable('admin');
-      table.integer('totalPlaces');
-      table.string('comune', 20);
-      table.string('address', 255);
-      table.string('country', 20);
-      table.string('type', 20);
     })
-  ]);
+    .createTable('userWork', function(table) {
+      table.string('user_rut').unsigned().references('rut').inTable('user');
+      table.integer('work_id').unsigned().references('id').inTable('work');
+    })
+    .createTable('work', function(table) {
+      table.increments('id').primary();
+      table.integer('totalPlaces');
+      table.string('comune');
+      table.string('address');
+      table.string('country');
+      table.string('type');
+      table.string('admin_rut').unsigned().references('rut').inTable('admin');
+    })
 };
 
 exports.down = function(knex, Promise) {
-
+  return knex.schema
+    .dropTableIfExist('admin')
+    .dropTableIfExist('adminUser')
+    .dropTableIfExist('adminWork')
+    .dropTableIfExist('day')
+    .dropTableIfExist('hour')
+    .dropTableIfExist('turn')
+    .dropTableIfExist('user')
+    .dropTableIfExist('userWork')
+    .dropTableIfExist('work')
 };
 
 

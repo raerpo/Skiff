@@ -8,7 +8,7 @@ class User extends Model {
 	static get jsonSchema() {
 		return {
 			type: 'object',
-			required: ['rut', 'name', 'lastName', 'birth', 'avaibleDays'],
+			required: ['rut', 'name', 'lastName', 'availableDays'],
 
 			properties: {
 				rut: { type: 'string', minLength: 1, maxLength: 10 },
@@ -20,10 +20,10 @@ class User extends Model {
 				email: { type: 'string' , minLength: 1, maxLength: 30 },
 				comune: { type: 'string', minLength: 1, maxLength: 14 },
 				country: { type: 'string', minLength: 1, maxLength: 20 },
-				avaibleDays: { type: 'integer' },
+				availableDays: { type: 'integer' },
 				type: { type: 'integer' },
-				statusAccount: { type: 'integer' },
-				work_id: { type: 'integer' }
+				statusAccount: { type: ['integer', 'null'] },
+				work_id: { type: ['integer', 'null'] }
 			}
 		}
 	}

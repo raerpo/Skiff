@@ -17,20 +17,33 @@ module.exports = (app) => {
   app.get('/about', (req, res) => res.render('index'));
   app.get('/register', (req, res) => res.render('index'));
 
-  app.post('/session' , function (req, res){
-    // const query = 'SELECT * FROM user';
+  app.post('/register/createAccount', (req, res) => {
+    console.log(req.body.data)
+
+    User.query().insert(req.body.data);
+
+    User
+      .query()
+        .then(person => {
+        console.log('La persona ingresada fue: ');
+        console.log(person)
+      })
+  })
+
+  app.post('/session' , (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
-    Hour
+    User
       .query()
-      .then(person => {
-        console.log('there are', person, ' users in total');
+      .where('rut' , '=', username)
+      .andWhere('password', '=', password)
+      .then(user => {
+        console.log(user.length, ' users in total');
       })
       .catch(err => {
-        console.log('oh noes');
+        console.log('Datos incorrectos');
       });
   })
-
 
 }
