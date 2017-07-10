@@ -17,6 +17,21 @@ module.exports = (app) => {
   app.get('/about', (req, res) => res.render('index'));
   app.get('/register', (req, res) => res.render('index'));
 
+  // <---------------- USER --------------->
+  app.get('/worker/home', (req, res) => res.render('session'));
+
+  // <---------------- ADMIN -------------->
+  app.get('/admin/home', (req, res) => res.render('session'));
+  app.get('/admin/workers/approve', (req, res) => res.render('session'));
+  app.get('/admin/workers/view', (req, res) => res.render('session'));
+  app.get('/admin/workers/viewAllTurns', (req, res) => res.render('session'));
+  app.get('/admin/view/supermarket', (req, res) => res.render('session'));
+  app.get('/exit', function(req, res){
+    req.session = null;
+    res.redirect('/');
+  });
+
+
   // Register User
   app.post('/register/createAccount', (req, res) => {
     const data = req.body.data;
@@ -57,7 +72,6 @@ module.exports = (app) => {
           req.session.availableDays = hit[0].availableDays;
           req.session.type = hit[0].type;
           req.session.country = hit[0].country;
-          console.log('session usuario: ', req.session)
           res.redirect('/worker/home');
         }else{
           res.redirect('/')
