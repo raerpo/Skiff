@@ -1,20 +1,20 @@
-const Model = require('objection').Model;
+const Model = require('../config/knex-to-model');
 
 class UserWork extends Model {
-	static get tableName() {
-		return 'userWork';
-	}
+  static get tableName() {
+    return 'userWork';
+  }
 
-	static get jsonSchema() {
-		return {
-			type: 'object',
+  static get jsonSchema() {
+    return {
+      type: 'object',
 
-			properties: {
-				user_rut: { type: 'string', minLength: 1, maxLength: 10 },
-				work_id: { type: 'integer' }
-			}
-		}
-	}
+      properties: {
+        user_rut: { type: 'string', minLength: 1, maxLength: 10 },
+        work_id: { type: 'integer' }
+      }
+    }
+  }
 
   static get relationMappings() {
     return {

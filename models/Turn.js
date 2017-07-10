@@ -1,22 +1,22 @@
-const Model = require('objection').Model;
+const Model = require('../config/knex-to-model');
 
 class Turn extends Model {
-	static get tableName() {
-		return 'turn';
-	}
+  static get tableName() {
+    return 'turn';
+  }
 
-	static get jsonSchema() {
-		return {
-			type: 'object',
+  static get jsonSchema() {
+    return {
+      type: 'object',
 
-			properties: {
-				user_id: { type: 'string', minLength: 1, maxLength: 14 },
-				hour_id: { type: 'integer' },
-				day_id: { type: 'integer' },
-				work_id: {type: 'integer' }
-			}
-		}
-	}
+      properties: {
+        user_id: { type: 'string', minLength: 1, maxLength: 14 },
+        hour_id: { type: 'integer' },
+        day_id: { type: 'integer' },
+        work_id: {type: 'integer' }
+      }
+    }
+  }
 
   static get relationMappings() {
     return {

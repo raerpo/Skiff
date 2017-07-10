@@ -19,16 +19,21 @@ module.exports = (app) => {
 
   app.post('/register/createAccount', (req, res) => {
     console.log(req.body.data)
+    const data = req.body.data;
 
-    User.query().insert(req.body.data);
-
-    User
-      .query()
-        .then(person => {
-        console.log('La persona ingresada fue: ');
-        console.log(person)
-      })
-  })
+    User.query()
+    .insert({
+      rut: data.rut,
+      password: data.password,
+      name: data.name,
+      lastName: data.lastName,
+      email: data.email
+    })
+    .then(function(result){
+      console.log('this is my result', result);
+      res.json({ ok: true, message: 'tu usuario fue ingresado pos oeoeoeo' });
+    });
+  });
 
   app.post('/session' , (req, res) => {
     const username = req.body.username;
