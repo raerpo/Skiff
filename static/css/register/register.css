@@ -1,56 +1,56 @@
 #content-formRegister{
-	margin-top: 5em;
+ margin-top: 5em;
 }
 
 .panel-primary{
-	border: 1px solid #eaeaea !important;
+ border: 1px solid #eaeaea !important;
 }
 
 .content-register{
-	width: 90%;
+ width: 90%;
 }
 
 .form-group label{
-	text-align: left;
+ text-align: left;
 }
 
 .form-horizontal{
-	border: 1px solid #eaeaea;
-	margin: 0px auto;
-	width: 95%;
-	padding: 2em;
+ border: 1px solid #eaeaea;
+ margin: 0px auto;
+ width: 95%;
+ padding: 2em;
 }
 
 .dataIncorrect{
-	box-shadow: 0px 0px 10px red;
+ box-shadow: 0px 0px 10px red;
 }
 
 .dataIncorrect:focus{
-	box-shadow: 0px 0px 10px red;
+ box-shadow: 0px 0px 10px red;
 }
 
 .dataCorrect{
-	box-shadow: 0px 0px 10px green;
+ box-shadow: 0px 0px 10px green;
 }
 
 .dataCorrect:focus{
-	box-shadow: 0px 0px 10px green;
+ box-shadow: 0px 0px 10px green;
 }
 
 .contentBtnRgister{
-	width: 50%;
-	margin: 0px auto;
+ width: 50%;
+ margin: 0px auto;
 }
 
 .contentBtnRgister input{
-	width: 100%;
+ width: 100%;
 }
 
 .specialLabel{
-	width: 50% !important;
+ width: 50% !important;
 }
 
 .btn-register{
-	border-radius: 5px !important;
-	margin-top: 1em;
+ border-radius: 5px !important;
+ margin-top: 1em;
 }

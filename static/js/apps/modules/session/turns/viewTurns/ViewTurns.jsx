@@ -2,28 +2,28 @@ import React from 'react';
 import InfoTurn from './InfoTurn';
 
 function getMyTurns(){
-	return $.getJSON('/data/jj8dd1scsa82jsass224');
+ return $.getJSON('/data/jj8dd1scsa82jsass224');
 }
 
 class ViewTurns extends React.Component {
-	constructor(props){
-		super(props);
+ constructor(props){
+  super(props);
 
-		this.state = {
-			elements: []
-		}
+  this.state = {
+   elements: []
+  }
 
-	}
+ }
 
-	componentWillMount(){
-		getMyTurns().then(data => this.setState({ elements : data }));
-	}
+ componentWillMount(){
+  getMyTurns().then(data => this.setState({ elements : data }));
+ }
 
     render(){
 
       let nameDay = null;
-    	const turn = this.state.elements
-    		.map((data, index) =>{
+     const turn = this.state.elements
+      .map((data, index) =>{
            let diference = nameDay === data.name ? null : (<hr key={`key-${index}`} />)
           nameDay = data.name;
            return(
@@ -38,13 +38,13 @@ class ViewTurns extends React.Component {
         );
 
         return (
-        	<div className="content-info-turns">
+         <div className="content-info-turns">
                 <div className="content-view-turns-head">
                     <div className="view-turns-head">Día</div>
                     <div className="view-turns-head">Hora</div>
                 </div>
-    			    { turn }
-    		</div>
+           { turn }
+      </div>
         )
     }
 }

@@ -7,12 +7,12 @@ class Home extends React.Component {
     render(){
         return (
             <div>
-        	<div className="home">
-        		<SectionMain
+         <div className="home">
+          <SectionMain
             url={"static/images/sleep_cat2.gif"}/>
-        		<RigthMenu />
-        	</div>
-                <Footer	typeFooter={'2'} />
+          <RigthMenu />
+         </div>
+                <Footer typeFooter={'2'} />
             </div>
         )
     }

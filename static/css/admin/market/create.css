@@ -1,35 +1,35 @@
 #content-formRegister-market{
-	width: 90%;
-	margin: 0px auto;
+ width: 90%;
+ margin: 0px auto;
 }
 
 #content-formRegister-market input{
-	width: 100%;
+ width: 100%;
 }
 
 #content-formRegister-market div{
-	width: 100% !important;
-	display: block !important;
+ width: 100% !important;
+ display: block !important;
 }
 
 #content-formRegister-market .btn{
-	width: 80%;
-	display: block;
-	margin: 0px auto;
+ width: 80%;
+ display: block;
+ margin: 0px auto;
 }
 
 .dataIncorrect{
-	box-shadow: 0px 0px 10px red;
+ box-shadow: 0px 0px 10px red;
 }
 
 .dataCorrect{
-	box-shadow: 0px 0px 10px green;
+ box-shadow: 0px 0px 10px green;
 }
 
 .dataIncorrect:focus{
-	box-shadow: 0px 0px 10px red;
+ box-shadow: 0px 0px 10px red;
 }
 
 .dataCorrect:focus{
-	box-shadow: 0px 0px 10px green;
+ box-shadow: 0px 0px 10px green;
 }

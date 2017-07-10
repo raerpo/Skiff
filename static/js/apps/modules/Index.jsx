@@ -5,11 +5,11 @@ class Index extends React.Component {
     render(){
         return (
             <div>
-            	<NavBarIndex />
+             <NavBarIndex />
                 { this.props.children }
-            </div> 
+            </div>
         )
     }
-} 
+}
 
 export default Index;

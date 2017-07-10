@@ -3,84 +3,84 @@ CREATE DATABASE market;
 -- statusAccount = 0: deleted  1: enabled  2: disabled
 
 CREATE TABLE admin(
-	rut VARCHAR(10) NOT NULL PRIMARY KEY,
-	password VARCHAR(15),
-	name VARCHAR(15) NOT NULL,
-	lastName VARCHAR(25) NOT NULL,
-	birth VARCHAR(14) NOT NULL,
-	phone VARCHAR(9),
-	email VARCHAR(30),
-	comune VARCHAR(20),
-	country VARCHAR(20),
-	avaibleDays INT NOT NULL,
-	accountPlan VARCHAR(20),
-	accountPay INT,
-	accountsAvaibles INT,
-	id_market INT,
-	keygen VARCHAR(8),
-	type INT,
-	statusAccount INT
+ rut VARCHAR(10) NOT NULL PRIMARY KEY,
+ password VARCHAR(15),
+ name VARCHAR(15) NOT NULL,
+ lastName VARCHAR(25) NOT NULL,
+ birth VARCHAR(14) NOT NULL,
+ phone VARCHAR(9),
+ email VARCHAR(30),
+ comune VARCHAR(20),
+ country VARCHAR(20),
+ avaibleDays INT NOT NULL,
+ accountPlan VARCHAR(20),
+ accountPay INT,
+ accountsAvaibles INT,
+ id_market INT,
+ keygen VARCHAR(8),
+ type INT,
+ statusAccount INT
 );
 
 CREATE TABLE admin_superMarket(
-	rut_admin VARCHAR(10),
-	id_market INT,
-	action VARCHAR(255)
+ rut_admin VARCHAR(10),
+ id_market INT,
+ action VARCHAR(255)
 );
 
 CREATE TABLE admin_user(
-	rut_admin VARCHAR(10),
-	rut_user VARCHAR(10),
-	action VARCHAR(255)
+ rut_admin VARCHAR(10),
+ rut_user VARCHAR(10),
+ action VARCHAR(255)
 );
 
 CREATE TABLE user(
-	rut VARCHAR(10) NOT NULL PRIMARY KEY,
-	password VARCHAR(15),
-	name VARCHAR(15) NOT NULL,
-	lastName VARCHAR(25) NOT NULL,
-	birth VARCHAR(14) NOT NULL,
-	phone VARCHAR(9),
-	email VARCHAR(30),
-	comune VARCHAR(20),
-	country VARCHAR(20),
-	avaibleDays INT NOT NULL,
-	id_market INT,
-	type INT,
-	statusAccount INT
+ rut VARCHAR(10) NOT NULL PRIMARY KEY,
+ password VARCHAR(15),
+ name VARCHAR(15) NOT NULL,
+ lastName VARCHAR(25) NOT NULL,
+ birth VARCHAR(14) NOT NULL,
+ phone VARCHAR(9),
+ email VARCHAR(30),
+ comune VARCHAR(20),
+ country VARCHAR(20),
+ avaibleDays INT NOT NULL,
+ id_market INT,
+ type INT,
+ statusAccount INT
 );
 
 CREATE TABLE user_superMarket(
-	rut_user VARCHAR(10),
-	id_market INT
+ rut_user VARCHAR(10),
+ id_market INT
 );
 
 CREATE TABLE superMarket(
-	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	rut_admin VARCHAR(10),
-	totalBoxes INT,
-	comune VARCHAR(20),
-	address VARCHAR(255),
-	country VARCHAR(20),
-	type VARCHAR(20)
+ id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+ rut_admin VARCHAR(10),
+ totalBoxes INT,
+ comune VARCHAR(20),
+ address VARCHAR(255),
+ country VARCHAR(20),
+ type VARCHAR(20)
 );
 
 CREATE TABLE days(
-	id_d INT PRIMARY KEY,
-	name VARCHAR(10),
-	numberDay INT
+ id_d INT PRIMARY KEY,
+ name VARCHAR(10),
+ numberDay INT
 );
 
 CREATE TABLE turns(
-	id_user VARCHAR(10),
-	id_hour INT,
-	id_day INT,
-	id_superMarket INT
+ id_user VARCHAR(10),
+ id_hour INT,
+ id_day INT,
+ id_superMarket INT
 );
 
 CREATE TABLE hours(
-	id_h INT PRIMARY KEY,
-	value VARCHAR(13)
+ id_h INT PRIMARY KEY,
+ value VARCHAR(13)
 );
 
 ALTER TABLE admin ADD CONSTRAINT admin_fk1 FOREIGN KEY(id_market) REFERENCES superMarket(id);

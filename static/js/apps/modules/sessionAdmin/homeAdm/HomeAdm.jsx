@@ -5,11 +5,11 @@ import Footer from '../../Footer';
 
 const HomeAdm = () => (
     <div>
-        	<div className="home">
+         <div className="home">
               <SectionMain
               url={"../static/images/sleep_cat2.gif"} />
               <RigthMenu />
-        	</div>
+         </div>
               <Footer typeFooter={'2'} />
     </div>
 );

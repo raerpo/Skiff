@@ -22,7 +22,7 @@ class User extends Model {
         comune: { type: 'string', minLength: 1, maxLength: 14 },
         country: { type: 'string', minLength: 1, maxLength: 20 },
         availableDays: { type: ['integer', 'null'] },
-        type: { type: 'integer' },
+        type: { type: ['integer', 'null'] },
         statusAccount: { type: ['integer', 'null'] },
         work_id: { type: ['integer', 'null'] }
       }

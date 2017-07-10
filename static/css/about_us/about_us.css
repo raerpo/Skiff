@@ -1,19 +1,19 @@
 .titles , .we{
-	color: white;
-	text-align: center;
-	font-family: Arial;
-	background: rgba(0, 108, 171, 0.8);
-	width: 16%;
-	box-shadow: 2px 2px 5px 2px black;
+ color: white;
+ text-align: center;
+ font-family: Arial;
+ background: rgba(0, 108, 171, 0.8);
+ width: 16%;
+ box-shadow: 2px 2px 5px 2px black;
 }
 .paragraph{
-	font-size: 110%;
-	line-height: 120%;
-	font-family: Tahoma;
+ font-size: 110%;
+ line-height: 120%;
+ font-family: Tahoma;
 }
 .about-container{
-	margin-left: 2%;
+ margin-left: 2%;
 }
 .we{
-	color:#999;
+ color:#999;
 }

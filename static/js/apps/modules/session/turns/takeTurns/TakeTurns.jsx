@@ -3,7 +3,7 @@ import Elements from './Elements';
 import Footer from '../../../Footer';
 
 function getDataTurns(){
-	return $.getJSON('/data/w9rie82jfns8fgd82ks');
+ return $.getJSON('/data/w9rie82jfns8fgd82ks');
 };
 
 function getTurnMarket(){
@@ -35,7 +35,7 @@ function hoursEquals(number, turns){
 
 function countTurns(turns) {
     var turnsEquals = [];
-    
+
     for(var i = 0; i < turns.length; i++){
         turnsEquals.push(
             turns[i].id_day+"-"+turns[i].id_hour + "&" +hoursEquals(turns[i].id_day+"-"+turns[i].id_hour, turns
@@ -75,25 +75,25 @@ function generateSendDAta(data){
 
 
 class TakeTurns extends React.Component {
-	constructor(props){
-		super(props);
+ constructor(props){
+  super(props);
 
-		this.state = {
-    		elements : [],
+  this.state = {
+      elements : [],
             takenTurns: [],
             selectedTurns : [],
             allTurns: [],
-            boxes: 0 
-	    }
+            boxes: 0
+     }
         this.onActionHour = this.onActionHour.bind(this);
     }
 
-	componentWillMount(){
-		getDataTurns().then(data => this.setState({ elements : data }));
+ componentWillMount(){
+  getDataTurns().then(data => this.setState({ elements : data }));
         getTurnMarket().then(data => this.setState({ takenTurns : data }));
         getBoxes().then(boxes => this.setState({ boxes }));
         getAllturns().then(turn => this.setState({ allTurns : turn }));
-	}
+ }
 
     sendDataDB(data){
         alert('turnos tomados correctamente');
@@ -105,9 +105,9 @@ class TakeTurns extends React.Component {
         const id = `${day}-${hour}`;
 
         if(selected === "noSelected"){
-             this.setState({ 
+             this.setState({
                 selectedTurns: this.state.selectedTurns
-                .concat({ 
+                .concat({
                     day, hour
                 })
             });
@@ -125,15 +125,15 @@ class TakeTurns extends React.Component {
         return (
         <div>
             <h2 className="title-take-turns">Turnos disponibles</h2>
-        	<div className="content-take-turns listDays"> 
-                <Elements 
-                rawData={this.state.elements} 
-                data={ generateSendDAta(this.state) } 
+         <div className="content-take-turns listDays">
+                <Elements
+                rawData={this.state.elements}
+                data={ generateSendDAta(this.state) }
                 statusTurns={countAllTurns}
                 onActionHour={this.onActionHour}
                 boxes={this.state.boxes} />
                 <input className="btn btn-success send-turns" onClick={ (i) => this.sendDataDB(this.state.selectedTurns) } type="button" value="Tomar turnos" />
-        	</div>	
+         </div>
             <Footer typeFooter={"2"} />
         </div>
         )

@@ -1,40 +1,40 @@
 .row-workerDisabled{
-	width: 100%;
-	border: 1px solid #eaeaea;
-	padding: 1em 0px;
+ width: 100%;
+ border: 1px solid #eaeaea;
+ padding: 1em 0px;
 }
 
 .row-workerDisabled > div{
-	display: inline-flex;
-	width: 20%;
-}	
+ display: inline-flex;
+ width: 20%;
+}
 
 .row-workerDisabled > div > div{
-	width: 100%;
-	font-size: 15px;
-	text-align: center;
+ width: 100%;
+ font-size: 15px;
+ text-align: center;
 }
 
 .row-workerDisabled > div > div > button{
-	width: 45%;
-	margin-left: 2px;
+ width: 45%;
+ margin-left: 2px;
 }
 
 .noWorkers-content{
-	width: 90%;
-	border: 2px solid #eaeaea;
-	margin: 2em auto;
-	padding: 10em 5em;
-	text-align: center;
-	background-color: rgba(51, 122, 183, .1);
+ width: 90%;
+ border: 2px solid #eaeaea;
+ margin: 2em auto;
+ padding: 10em 5em;
+ text-align: center;
+ background-color: rgba(51, 122, 183, .1);
 }
 
 .noWorkers-text{
-	font-size: 2em;
-	color: #777;
+ font-size: 2em;
+ color: #777;
 }
 
 .h3-admin{
-	color: #777;
-	text-align: center;
+ color: #777;
+ text-align: center;
 }

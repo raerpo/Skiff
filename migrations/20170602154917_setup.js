@@ -1,24 +1,24 @@
 exports.up = function(knex, Promise) {
   return knex.schema
     .createTable('admin', function(table) {
-  		table.string('rut').primary();
-  		table.string('password');
-  		table.string('name');
-  		table.string('lastName');
-  		table.string('birth');
-  		table.string('phone');
-  		table.string('email');
-  		table.string('comune');
-  		table.string('country');
-  		table.integer('availableDays');
-  		table.string('accountPlan');
-  		table.integer('accountPay');
-  		table.integer('accountsAvaibles');
-  		table.string('keygen');
-  		table.integer('type');
-  		table.integer('statusAccount');
-  		table.integer('work_id').unsigned().references('id').inTable('work');
-  	})
+    table.string('rut').primary();
+    table.string('password');
+    table.string('name');
+    table.string('lastName');
+    table.string('birth');
+    table.string('phone');
+    table.string('email');
+    table.string('comune');
+    table.string('country');
+    table.integer('availableDays');
+    table.string('accountPlan');
+    table.integer('accountPay');
+    table.integer('accountsAvaibles');
+    table.string('keygen');
+    table.integer('type');
+    table.integer('statusAccount');
+    table.integer('work_id').unsigned().references('id').inTable('work');
+   })
     .createTable('adminUser', function(table) {
       table.string('admin_rut').unsigned().references('rut').inTable('admin');
       table.string('user_rut').unsigned().references('rut').inTable('user');

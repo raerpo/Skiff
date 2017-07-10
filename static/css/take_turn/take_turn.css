@@ -1,72 +1,72 @@
 .hours{
-	display: inline-flex;
-	border: 1px solid #eaeaea;
-	padding: 1em;
-	margin-right: .2em;
-	border-radius: 10px;
-	box-shadow: 0px 0px 10px #10291b;
+ display: inline-flex;
+ border: 1px solid #eaeaea;
+ padding: 1em;
+ margin-right: .2em;
+ border-radius: 10px;
+ box-shadow: 0px 0px 10px #10291b;
 }
 
 .hours:hover{
-	border-radius: 10px;
-	cursor: pointer;
+ border-radius: 10px;
+ cursor: pointer;
 }
 
 .selected{
-	background-color: rgba(68, 157, 68, .7);
-	border-color: #398439;
-	color: white;
-	border: 1px solid #769676;
-	box-shadow: 0px 0px 10px #10291b;
+ background-color: rgba(68, 157, 68, .7);
+ border-color: #398439;
+ color: white;
+ border: 1px solid #769676;
+ box-shadow: 0px 0px 10px #10291b;
 }
 
 .noSelected{
-	background-color: white;
+ background-color: white;
 }
 
 .listDays{
-	text-align: center;
+ text-align: center;
 }
 
 .panel-title{
-	font-size: 20px;
+ font-size: 20px;
 }
 
 .panel-title a:hover{
-	text-decoration: none;
+ text-decoration: none;
 }
 
 .panel-title a{
-	text-decoration: none;
+ text-decoration: none;
 }
 
 .content-take-turns{
-	width: 70%;
+ width: 70%;
 
-	margin: 0px auto;
+ margin: 0px auto;
 }
 
 .send-turns{
-	padding: 1em 2em;
+ padding: 1em 2em;
 }
 
 .title-take-turns{
-	text-align: center;
-	color: #777;
-	margin: 1em auto;
+ text-align: center;
+ color: #777;
+ margin: 1em auto;
 }
 
 .panel-group{
-	border: 1px solid #eaeaea !important;
-	border-radius: 15px !important;
+ border: 1px solid #eaeaea !important;
+ border-radius: 15px !important;
 }
 
 .warning{
-	background-color: rgba(209, 212, 29, .3);
-	border: 1px solid #d6cea1;
-}	
+ background-color: rgba(209, 212, 29, .3);
+ border: 1px solid #d6cea1;
+}
 
 .danger{
-	background-color: rgba(255, 20, 20, .6);
-	border: 1px solid #c5a0a0
+ background-color: rgba(255, 20, 20, .6);
+ border: 1px solid #c5a0a0
 }

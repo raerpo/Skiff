@@ -17,8 +17,8 @@ module.exports = (app) => {
   app.get('/about', (req, res) => res.render('index'));
   app.get('/register', (req, res) => res.render('index'));
 
+  // Register User
   app.post('/register/createAccount', (req, res) => {
-    console.log(req.body.data)
     const data = req.body.data;
 
     User.query()
@@ -27,14 +27,17 @@ module.exports = (app) => {
       password: data.password,
       name: data.name,
       lastName: data.lastName,
-      email: data.email
+      email: data.email,
+      type: parseInt(data.type),
+      statusAccount: parseInt(data.statusAccount)
     })
-    .then(function(result){
-      console.log('this is my result', result);
-      res.json({ ok: true, message: 'tu usuario fue ingresado pos oeoeoeo' });
+    .then((result) => {
+      console.log('a new user was created')
+      res.json({ url: '/' });
     });
   });
 
+  // Login User
   app.post('/session' , (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
@@ -43,8 +46,8 @@ module.exports = (app) => {
       .query()
       .where('rut' , '=', username)
       .andWhere('password', '=', password)
-      .then(user => {
-        console.log(user.length, ' users in total');
+      .then( result => {
+        console.log(result);
       })
       .catch(err => {
         console.log('Datos incorrectos');
