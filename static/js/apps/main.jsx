@@ -48,11 +48,11 @@ ReactDOM.render(
         </Route>
         <Route path="/admin" component={ PageAdmin }>
             <Route path="/admin/home" component={ HomeAdm } />
-            <Route path="/admin/workers/approve" component={ WorkersApprove } />
-            <Route path="/admin/workers/view" component={ WorkersView } />
+            <Route path="/admin/worker/approve" component={ WorkersApprove } />
+            <Route path="/admin/worker/view" component={ WorkersView } />
             <Route path="/admin/market/create" component={ CreateMarket } />
             <Route path="/admin/view/supermarket" component={ ViewMarket} />
-            <Route path="/admin/workers/viewAllTurns" component={ ViewAllTurns } />
+            <Route path="/admin/worker/viewAllTurns" component={ ViewAllTurns } />
         </Route>
     </Router>,
     document.getElementById('app')

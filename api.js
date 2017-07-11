@@ -27,6 +27,21 @@ module.exports = (app) => {
   app.get('/worker/turns/take', (req, res) => res.render('session'));
   app.get('/worker/turns/view', (req, res) => res.render('session'));
   app.get('/worker/turns/viewAll', (req, res) => res.render('session'));
+  app.post('/turns/take/validate', function(req, res){
+    req.body.data.forEach(function(data){
+      const newData = {
+        user_id : req.session.user,
+        hour_id : parseInt(data.hour),
+        day_id : parseInt(data.day),
+        work_id : req.session.work
+      }
+      Turn
+      .query()
+      .insert(newData)
+      .then(console.log)
+      .catch(console.error)
+    });
+  });
 
   // <---------------- ADMIN -------------->
   app.get('/admin/home', (req, res) => { if(req.session.work == null){ res.redirect('/admin/market/create');}});
@@ -71,7 +86,6 @@ module.exports = (app) => {
 
     for (var i = 0;i < hours.length; i++){
         if (hourNow >= hours[i][0] && hourNow < hours[i][1]){
-          console.log(i);
           hour = i;
         }
     };

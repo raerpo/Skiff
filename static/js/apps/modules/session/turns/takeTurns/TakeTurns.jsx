@@ -99,7 +99,7 @@ class TakeTurns extends React.Component {
     sendDataDB(data){
         alert('turnos tomados correctamente');
         $.post('/turns/take/validate', { data });
-        window.location.href = '/turns/view';
+        window.location.href = '/worker/turns/view';
     }
 
     onActionHour(day, hour, selected){

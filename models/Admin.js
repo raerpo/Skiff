@@ -11,8 +11,8 @@ class Admin extends Model {
       required: ['rut', 'name', 'lastName', 'birth', 'avaibleDays'],
 
       properties: {
-        work_id: { type: 'integer' },
         rut: { type: 'string', minLength: 1, maxLength: 10 },
+        work_id: { type: 'integer' },
         password: { type: 'string', minLength: 1, maxLength: 15 },
         name: { type: 'string', minLength: 1, maxLength: 15 },
         lastName: { type: 'string', minLength: 1, maxLength: 25 },
@@ -35,7 +35,7 @@ class Admin extends Model {
   static get relationMappings() {
     return {
       work_id: {
-        relation: Model.HasOneRelation,
+        relation: Model.BelongsToOneRelation,
         modelClass: __dirname + '/Work',
         join: {
           from: 'admin.work_id',

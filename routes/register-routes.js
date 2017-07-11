@@ -33,8 +33,7 @@ const registerLocation = (req, res) => {
   Work
     .query()
     .insert({
-      id: 1,
-      admin_rut: req.session.user.toString(),
+      admin_rut: req.session.user,
       totalPlaces: parseInt(data.totalPlaces),
       comune: data.city,
       address: data.address,

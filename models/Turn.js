@@ -20,8 +20,8 @@ class Turn extends Model {
 
   static get relationMappings() {
     return {
-      user_id: {
-        relation: Model.HasManyRelation,
+      user: {
+        relation: Model.BelongsToOneRelation,
         modelClass: __dirname + '/User',
         join: {
           from: 'turn.user_id',
@@ -29,8 +29,8 @@ class Turn extends Model {
         }
       },
 
-      hour_id: {
-        relation: Model.HasManyRelation,
+      hour: {
+        relation: Model.BelongsToOneRelation,
         modelClass: __dirname + '/Hour',
         join: {
           from: 'turn.hour_id',
@@ -38,8 +38,8 @@ class Turn extends Model {
         }
       },
 
-      day_id: {
-        relation: Model.HasManyRelation,
+      day: {
+        relation: Model.BelongsToOneRelation,
         modelClass: __dirname + '/Day',
         join: {
           from: 'turn.day_id',
@@ -47,8 +47,8 @@ class Turn extends Model {
         }
       },
 
-      work_id: {
-        relation: Model.HasManyRelation,
+      work: {
+        relation: Model.BelongsToOneRelation,
         modelClass: __dirname + '/Work',
         join: {
           from: 'turn.work_id',

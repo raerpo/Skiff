@@ -32,7 +32,7 @@ class User extends Model {
   static get relationMappings() {
     return{
       work_id:{
-        relation: Model.HasManyRelation,
+        relation: Model.BelongsToOneRelation,
         modelClass: __dirname + '/Work',
         join: {
           from: 'user.work_id',

@@ -20,9 +20,9 @@ class NavBar extends React.Component {
                   <li className='dropdown'>
                     <a href='#' className='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'><span className='glyphicon glyphicon-briefcase'></span> Trabajadores <span className='caret'></span></a>
                     <ul className='dropdown-menu'>
-                      <li><a href='/admin/workers/approve'><span className='glyphicon glyphicon-triangle-right '></span> Aprobar trabajador </a></li>
-                      <li><a href='/admin/workers/view'><span className='glyphicon glyphicon-triangle-right '></span> Ver trabajadores </a></li>
-                      <li><a href='/admin/workers/viewAllTurns'><span className='glyphicon glyphicon-triangle-right '></span> Ver turnos trabajadores </a></li>
+                      <li><a href='/admin/worker/approve'><span className='glyphicon glyphicon-triangle-right '></span> Aprobar trabajador </a></li>
+                      <li><a href='/admin/worker/view'><span className='glyphicon glyphicon-triangle-right '></span> Ver trabajadores </a></li>
+                      <li><a href='/admin/worker/viewAllTurns'><span className='glyphicon glyphicon-triangle-right '></span> Ver turnos trabajadores </a></li>
                       {/*<li><a href='#'><span className='glyphicon glyphicon-triangle-right '></span> Actualizar trabajador </a></li>
                       <li><a href='#'><span className='glyphicon glyphicon-triangle-right '></span> Eliminar trabajador </a></li>*/}
                     </ul>
