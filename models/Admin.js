@@ -35,7 +35,7 @@ class Admin extends Model {
   static get relationMappings() {
     return {
       work_id: {
-        relation: Model.HasManyRelation,
+        relation: Model.HasOneRelation,
         modelClass: __dirname + '/Work',
         join: {
           from: 'admin.work_id',

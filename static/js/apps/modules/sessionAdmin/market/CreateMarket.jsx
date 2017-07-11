@@ -9,7 +9,7 @@ class CreateMarket extends React.Component{
   this.state = {
    city : {newClass : "none"},
    address: {newClass : "none"},
-   numberBox: {newClass : "none"},
+   totalPlaces: {newClass : "none"},
    type : {newClass : "none"}
   }
 
@@ -21,15 +21,15 @@ class CreateMarket extends React.Component{
  send(){
   const city = this.refs.FormularyMarket.refs.inputCity.value;
   const address = this.refs.FormularyMarket.refs.inputAddress.value;
-  const numberBox = this.refs.FormularyMarket.refs.inputBox.value;
+  const totalPlaces = this.refs.FormularyMarket.refs.inputBox.value;
   const type = this.refs.FormularyMarket.refs.selectType.value;
 
   if( this.state.city.newClass === "dataCorrect" &&
    this.state.address.newClass === "dataCorrect" &&
-   this.state.numberBox.newClass === "dataCorrect" &&
+   this.state.totalPlaces.newClass === "dataCorrect" &&
    this.state.type.newClass === "dataCorrect" ){
    $.post('/admin/market/create/validate', {
-    city, address, numberBox, type
+    city, address, totalPlaces, type
    });
   }else{
    alert("Corrige los campos incorrectos");
@@ -39,7 +39,7 @@ class CreateMarket extends React.Component{
  validation(){
   const city = this.refs.FormularyMarket.refs.inputCity.value;
   const address = this.refs.FormularyMarket.refs.inputAddress.value;
-  const numberBox = this.refs.FormularyMarket.refs.inputBox.value;
+  const totalPlaces = this.refs.FormularyMarket.refs.inputBox.value;
   const type = this.refs.FormularyMarket.refs.selectType.value;
 
   const validateNumber = /^\d{1,2}$/;
@@ -61,14 +61,14 @@ class CreateMarket extends React.Component{
    this.setState({ address : {newClass : "none"} });
   }
 
-  if(numberBox != ""){
-   if(validateNumber.test(numberBox)){
-    this.setState({ numberBox : {newClass : "dataCorrect"} });
+  if(totalPlaces != ""){
+   if(validateNumber.test(totalPlaces)){
+    this.setState({ totalPlaces : {newClass : "dataCorrect"} });
    }else{
-    this.setState({ numberBox : {newClass : "dataIncorrect"} });
+    this.setState({ totalPlaces : {newClass : "dataIncorrect"} });
    }
   }else{
-   this.setState({ numberBox : {newClass : "none"} });
+   this.setState({ totalPlaces : {newClass : "none"} });
   }
 
   if(type != ""){
@@ -85,7 +85,7 @@ class CreateMarket extends React.Component{
     <FormularyMarket ref="FormularyMarket" press={this.validation} send={this.send}
      classCity={this.state.city.newClass}
      classAddress={this.state.address.newClass}
-     classBox={this.state.numberBox.newClass}
+     classBox={this.state.totalPlaces.newClass}
      classType={this.state.type.newClass}
     />
    </div>

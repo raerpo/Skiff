@@ -12,17 +12,17 @@ class NavBar extends React.Component {
                   <span className="icon-bar"></span>
                   <span className="icon-bar"></span>
                 </button>
-                <a className="navbar-brand" href="/home">Market</a>
+                <a className="navbar-brand" href="/worker/home">Market</a>
               </div>
               <div id="navbar" className="navbar-collapse collapse">
                 <ul className="nav navbar-nav">
-                  <li className="active"><a href="/home"><span className="glyphicon glyphicon-home"></span> Inicio</a></li>
+                  <li className="active"><a href="/worker/home"><span className="glyphicon glyphicon-home"></span> Inicio</a></li>
                   <li className="dropdown">
                     <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span className="glyphicon glyphicon-briefcase"></span> Turnos <span className="caret"></span></a>
                     <ul className="dropdown-menu">
-                      <li><a href="/turns/take"><span className="glyphicon glyphicon-triangle-right "></span> Tomar turnos</a></li>
-                      <li><a href="/turns/view"><span className="glyphicon glyphicon-triangle-right "></span> Ver mis turnos</a></li>
-                      <li><a href="/turns/viewAll"><span className="glyphicon glyphicon-triangle-right "></span> Ver turnos tomados</a></li>
+                      <li><a href="/worker/turns/take"><span className="glyphicon glyphicon-triangle-right "></span> Tomar turnos</a></li>
+                      <li><a href="/worker/turns/view"><span className="glyphicon glyphicon-triangle-right "></span> Ver mis turnos</a></li>
+                      <li><a href="/worker/turns/viewAll"><span className="glyphicon glyphicon-triangle-right "></span> Ver turnos tomados</a></li>
                       {/*<li><a href="/turns/change"><span className="glyphicon glyphicon-triangle-right "></span> Cambiar turnos</a></li>*/}
                     </ul>
                   </li>

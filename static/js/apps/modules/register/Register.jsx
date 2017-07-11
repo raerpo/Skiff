@@ -53,7 +53,7 @@ class Register extends React.Component {
      availableDays : null,
      work_id : null,
      type : 1,
-     statusAccount: 2
+     statusAccount: 1
     }
    }).then((result) => {
         alert('usuario creado exitosamente, ahora tu administrador tiene que aprobar tu cuenta.');

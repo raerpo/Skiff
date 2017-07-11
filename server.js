@@ -49,58 +49,6 @@ const listener = app.listen(3000, () =>
 );
 
 /*
-app.post('/admin/session' , function(req, res){
- const query = 'SELECT * FROM admin';
- const username = req.body.admin;
- const password = req.body.password;
-
- connection.query( query , function(err, results){
-  if (err) throw err
-  const hit = results
-   .filter(user => user.rut == username && user.password == password);
-
-  if(hit.length == 1){
-    req.session.user = hit[0].rut;
-    req.session.market = hit[0].id_market;
-    req.session.name = hit[0].name;
-    req.session.lastName = hit[0].lastName;
-    req.session.avaibleDays = hit[0].avaibleDays;
-    req.session.type = hit[0].type;
-    req.session.country = hit[0].country;
-    res.redirect('/admin/home');
-  }
-  else{
-   res.redirect('/');
-  }
- })
-})
-
-app.post('/session' , function(req, res){
- const query = 'SELECT * FROM user';
- const username = req.body.username;
- const password = req.body.password;
-
- connection.query( query , function(err, results){
-  if (err) throw err
-  const hit = results
-   .filter(user => user.rut == username && user.password == password);
-
-  if(hit.length == 1){
-   if(results[0].statusAccount == 1){
-    req.session.user = hit[0].rut;
-    req.session.market = hit[0].id_market;
-    req.session.name = hit[0].name;
-    req.session.lastName = hit[0].lastName;
-    req.session.avaibleDays = hit[0].avaibleDays;
-    req.session.type = hit[0].type;
-       res.redirect('/home');
-   }else{
-    res.redirecdatat('/');
-   }
-  }
- })
-})
-
 // if(!req.session.username){res.redirect("/")}
 // app.get('/login', (req, res) => res.render('index'));
 app.post('/register/createAccount', function(req, res){
