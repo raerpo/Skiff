@@ -10,6 +10,9 @@ const Work = require('./models/Work');
 const date = new Date;
 const day = date.getDate();
 
+const registerRoutes = require('./routes/register-routes');
+const loginRoutes = require('./routes/login-routes');
+
 module.exports = (app) => {
   // <---------------- HOME --------------->
   app.get('/', (req, res) => res.redirect('/home'));
@@ -24,7 +27,6 @@ module.exports = (app) => {
   app.get('/worker/turns/take', (req, res) => res.render('session'));
   app.get('/worker/turns/view', (req, res) => res.render('session'));
   app.get('/worker/turns/viewAll', (req, res) => res.render('session'));
-
 
   // <---------------- ADMIN -------------->
   app.get('/admin/home', (req, res) => { if(req.session.work == null){ res.redirect('/admin/market/create');}});
@@ -45,103 +47,13 @@ module.exports = (app) => {
   });
 
   // Register User
-  app.post('/register/createAccount', (req, res) => {
-    const data = req.body.data;
-
-    User
-    .query()
-    .insert({
-      rut: data.rut,
-      password: data.password,
-      name: data.name,
-      lastName: data.lastName,
-      email: data.email,
-      type: parseInt(data.type),
-      statusAccount: parseInt(data.statusAccount)
-    })
-    .then((result) => {
-      console.log('a new user was created')
-      res.json({ url: '/' });
-    });
-  });
-
+  app.post('/register/createAccount', registerRoutes.registerUser);
   // Register Work
-  app.post('/admin/market/create/validate', function(req, res){
-    if(req.session.work){ res.redirect('/admin/home') };
-    const data = req.body;
-
-    Work
-      .query()
-      .insert({
-        id: 1,
-        admin_rut: req.session.user.toString(),
-        totalPlaces: parseInt(data.totalPlaces),
-        comune: data.city,
-        address: data.address,
-        country: 'Chile',
-        type: data.type
-      }).then((result) => {
-        console.log('added: ' , result)
-      });
-
-      // connection.query(`SELECT rut_admin, id FROM superMarket`, function(err, results){
-      // results.forEach(function(data){
-      //   if(data.rut_admin === req.session.user){
-      //   connection.query(`UPDATE admin SET id_market=${data.id} WHERE rut='${data.rut_admin}'`);
-      //   }
-      // })
-    // })
-  });
-
+  app.post('/admin/market/create/validate', registerRoutes.registerLocation);
   // Login User
-  app.post('/session' , (req, res) => {
-    const username = req.body.username;
-    const password = req.body.password;
-
-    User
-      .query()
-      .where('rut' , '=', username)
-      .andWhere('password', '=', password)
-      .then( hit => {
-        if(hit.length == 1){
-          req.session.user = hit[0].rut;
-          req.session.work = hit[0].work_id;
-          req.session.name = hit[0].name;
-          req.session.lastName = hit[0].lastName;
-          req.session.availableDays = hit[0].availableDays;
-          req.session.type = hit[0].type;
-          req.session.country = hit[0].country;
-          res.redirect('/worker/home');
-        }else{
-          res.redirect('/')
-        }
-      });
-    })
-
+  app.post('/session', loginRoutes.userLogin);
   // Logon Admin
-  app.post('/admin/session', (req, res) => {
-    const username = req.body.admin;
-    const password = req.body.password;
-
-    Admin
-      .query()
-      .where('rut', '=', username)
-      .andWhere('password', '=', password)
-      .then( hit => {
-        if(hit.length == 1){
-          req.session.user = hit[0].rut;
-          req.session.work = hit[0].work_id;
-          req.session.name = hit[0].name;
-          req.session.lastName = hit[0].lastName;
-          req.session.availableDays = hit[0].availableDays;
-          req.session.type = hit[0].type;
-          req.session.country = hit[0].country;
-          res.redirect('/admin/home');
-        }else{
-          res.redirect('/')
-        }
-      })
-    })
+  app.post('/admin/session', loginRoutes.adminLogin);
 
   // <------------------- JSON DATA ---------------->
   app.get('/data/cxcdjewikkd2k34kk56kkfssh' , function(req, res){
@@ -164,7 +76,7 @@ module.exports = (app) => {
         }
     };
 
-    res.json({status: 'ok'})
+    res.json({ status: 'ok' });
 
     // const query = `SELECT user.name, lastName, value FROM user, turns, hours
     //   WHERE turns.id_hour=${hour}
