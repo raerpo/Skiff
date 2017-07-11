@@ -7,8 +7,9 @@ module.exports = {
     connection: {
       filename: 'dev.sqlite3'
     }
+    // },
+    // debug: true
   },
-
   production: {
     client: 'mysql',
     connection: {
@@ -24,5 +25,4 @@ module.exports = {
       tableName: 'knex_migrations'
     }
   }
-
 };
