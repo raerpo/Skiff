@@ -35,6 +35,7 @@ function hoursEquals(number, turns){
 
 function countTurns(turns) {
     var turnsEquals = [];
+    console.log(turns)
 
     for(var i = 0; i < turns.length; i++){
         turnsEquals.push(
@@ -89,7 +90,6 @@ class TakeTurns extends React.Component {
     }
 
   componentWillMount(){
-    console.log(getDataTurns());
     getDataTurns().then(data => this.setState({ elements : data }));
     getTurnMarket().then(data => this.setState({ takenTurns : data }));
     getBoxes().then(boxes => this.setState({ boxes }));
