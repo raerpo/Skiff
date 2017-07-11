@@ -95,8 +95,25 @@ module.exports = (app) => {
 
   // <-------- DATA: TAKE TURN -------->
   app.get('/data/w9rie82jfns8fgd82ks' , function(req, res){
-    Day.query().join('hour').then(result => {
-      res.json(result);
+    let result = [];
+
+    Day
+    .query()
+    .then(days => {
+      Hour.query().then(hours => {
+        days.map(function(day, index){
+          hours.forEach(hour => {
+            result.push({
+              id_d: day.id_d,
+              name: day.name,
+              numberDay: day.numberDay,
+              id_h: hour.id_h,
+              value: hour.value
+            });
+          })
+        })
+        res.json(result);
+      })
     })
   });
 
@@ -113,7 +130,6 @@ module.exports = (app) => {
 
   //getBoxSuperMarket
   app.get('/data/fvht3sd120980ksd881s', function(req, res){
-    console.log(req.session)
     Work
       .query()
       .select('totalPlaces')
@@ -131,7 +147,6 @@ module.exports = (app) => {
       .then(result => {
         res.json(result);
       });
-
   })
 
 }

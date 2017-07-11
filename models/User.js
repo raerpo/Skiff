@@ -13,6 +13,7 @@ class User extends Model {
 
       properties: {
         rut: { type: 'string', minLength: 1, maxLength: 10 },
+        work_id: { type: ['integer', 'null'] },
         password: { type: 'string', minLength: 1, maxLength: 15 },
         name: { type: 'string', minLength: 1, maxLength: 15 },
         lastName: { type: 'string', minLength: 1, maxLength: 25 },
@@ -23,8 +24,7 @@ class User extends Model {
         country: { type: 'string', minLength: 1, maxLength: 20 },
         availableDays: { type: ['integer', 'null'] },
         type: { type: ['integer', 'null'] },
-        statusAccount: { type: ['integer', 'null'] },
-        work_id: { type: ['integer', 'null'] }
+        statusAccount: { type: ['integer', 'null'] }
       }
     }
   }

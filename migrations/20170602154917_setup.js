@@ -1,6 +1,7 @@
 exports.up = function(knex, Promise) {
   return knex.schema
     .createTable('admin', function(table) {
+    table.integer('work_id').unsigned().references('id').inTable('work');
     table.string('rut').primary();
     table.string('password');
     table.string('name');
@@ -17,7 +18,6 @@ exports.up = function(knex, Promise) {
     table.string('keygen');
     table.integer('type');
     table.integer('statusAccount');
-    table.integer('work_id').unsigned().references('id').inTable('work');
    })
     .createTable('adminUser', function(table) {
       table.string('admin_rut').unsigned().references('rut').inTable('admin');
@@ -46,6 +46,7 @@ exports.up = function(knex, Promise) {
     })
     .createTable('user', function(table) {
       table.string('rut').primary();
+      table.integer('work_id').unsigned().references('id').inTable('work');
       table.string('password');
       table.string('name');
       table.string('lastName');
@@ -57,7 +58,6 @@ exports.up = function(knex, Promise) {
       table.integer('availableDays');
       table.integer('type');
       table.integer('statusAccount');
-      table.integer('work_id').unsigned().references('id').inTable('work');
     })
     .createTable('userWork', function(table) {
       table.string('user_rut').unsigned().references('rut').inTable('user');
@@ -65,12 +65,12 @@ exports.up = function(knex, Promise) {
     })
     .createTable('work', function(table) {
       table.increments('id').primary();
+      table.string('admin_rut').unsigned().references('rut').inTable('admin');
       table.integer('totalPlaces');
       table.string('comune');
       table.string('address');
       table.string('country');
       table.string('type');
-      table.string('admin_rut').unsigned().references('rut').inTable('admin');
     })
 };
 

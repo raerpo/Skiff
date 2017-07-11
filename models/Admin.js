@@ -11,6 +11,7 @@ class Admin extends Model {
       required: ['rut', 'name', 'lastName', 'birth', 'avaibleDays'],
 
       properties: {
+        work_id: { type: 'integer' },
         rut: { type: 'string', minLength: 1, maxLength: 10 },
         password: { type: 'string', minLength: 1, maxLength: 15 },
         name: { type: 'string', minLength: 1, maxLength: 15 },
@@ -26,8 +27,7 @@ class Admin extends Model {
         accountsAvaibles: { type: 'integer' },
         keygen: { type: 'string', minLength: 1, maxLength: 8 },
         type: { type: 'integer' },
-        statusAccount: { type: 'integer'},
-        work_id: { type: 'integer' }
+        statusAccount: { type: 'integer'}
       }
     }
   }

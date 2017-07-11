@@ -12,12 +12,12 @@ class Work extends Model {
 
       properties: {
         id: { type: 'integer' },
+        admin_rut: { type: 'string', minLength: 1, maxLength: 10 },
         totalPlaces: { type: 'integer' },
         comune: { type: 'string', minLength: 1, maxLength: 20 },
         address: { type: 'string', minLength: 1, maxLength: 255 },
         country: { type: 'string', minLength: 1, maxLength: 20 },
-        type: { type: 'string', minLength: 1, maxLength: 20 },
-        admin_rut: { type: 'string', minLength: 1, maxLength: 10 }
+        type: { type: 'string', minLength: 1, maxLength: 20 }
       }
     }
   }
