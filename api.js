@@ -93,11 +93,45 @@ module.exports = (app) => {
     res.json({'day' : day});
   });
 
+  // <-------- DATA: TAKE TURN -------->
   app.get('/data/w9rie82jfns8fgd82ks' , function(req, res){
-  // const query = "SELECT * FROM days, hours";
-  // connection.query(query , function(err, results){
-  //   res.json(results);
-  // })
+    Day.query().join('hour').then(result => {
+      res.json(result);
+    })
+  });
+
+  app.get('/data/kdfkjg82s02kkd9337f' , function(req, res){
+    Turn
+      .query()
+      .where('work_id', '=', req.session.work)
+      .andWhere('user_id', '=', req.session.user)
+      .then(result => {
+        res.json(result);
+    })
+
+  })
+
+  //getBoxSuperMarket
+  app.get('/data/fvht3sd120980ksd881s', function(req, res){
+    console.log(req.session)
+    Work
+      .query()
+      .select('totalPlaces')
+      .where('id', '=', req.session.work)
+      .then(result => {
+        res.json(result[0].totalPlaces)
+      })
+    });
+
+  // get all turns of superMarket
+  app.get('/turns/frsdkff2apod9983' , function(req, res){
+    Turn
+      .query()
+      .where('work_id', '=', req.session.work)
+      .then(result => {
+        res.json(result);
+      });
+
   })
 
 }
