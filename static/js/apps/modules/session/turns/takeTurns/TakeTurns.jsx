@@ -22,7 +22,7 @@ function filterForTakenTurns(data, taken){
     const id = `${data.id_d}-${data.id_h}`;
 
     for(var i = 0; i < taken.length; i++){
-        if(id == `${taken[i].id_day}-${taken[i].id_hour}`){
+        if(id == `${taken[i].day_id}-${taken[i].hour_id}`){
             return false;
         }
     };
@@ -30,7 +30,7 @@ function filterForTakenTurns(data, taken){
 }
 
 function hoursEquals(number, turns){
-    return turns.filter(turn => turn.id_day+"-"+turn.id_hour === number).length;
+    return turns.filter(turn => turn.day_id+"-"+turn.hour_id === number).length;
 }
 
 function countTurns(turns) {
@@ -38,7 +38,7 @@ function countTurns(turns) {
 
     for(var i = 0; i < turns.length; i++){
         turnsEquals.push(
-            turns[i].id_day+"-"+turns[i].id_hour + "&" +hoursEquals(turns[i].id_day+"-"+turns[i].id_hour, turns
+            turns[i].day_id+"-"+turns[i].hour_id + "&" +hoursEquals(turns[i].day_id+"-"+turns[i].hour_id, turns
         ));
     }
     return turnsEquals;
@@ -88,11 +88,12 @@ class TakeTurns extends React.Component {
         this.onActionHour = this.onActionHour.bind(this);
     }
 
- componentWillMount(){
-  getDataTurns().then(data => this.setState({ elements : data }));
-        getTurnMarket().then(data => this.setState({ takenTurns : data }));
-        getBoxes().then(boxes => this.setState({ boxes }));
-        getAllturns().then(turn => this.setState({ allTurns : turn }));
+  componentWillMount(){
+    console.log(getDataTurns());
+    getDataTurns().then(data => this.setState({ elements : data }));
+    getTurnMarket().then(data => this.setState({ takenTurns : data }));
+    getBoxes().then(boxes => this.setState({ boxes }));
+    getAllturns().then(turn => this.setState({ allTurns : turn }));
  }
 
     sendDataDB(data){
