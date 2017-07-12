@@ -96,17 +96,12 @@ module.exports = (app) => {
         }
     };
 
-    res.json({ status: 'ok' });
-
-    // const query = `SELECT user.name, lastName, value FROM user, turns, hours
-    //   WHERE turns.id_hour=${hour}
-    //   AND turns.id_day=${numberDay}
-    //   And user.rut=turns.id_user
-    //   AND hours.id_h=turns.id_hour`;
-
-    // connection.query(query , function(err, results){
-    //   res.json({ results, 'time': {hourNow, minuteNow, secondNow, numberDay} });
-    // })
+    Turn
+      .query()
+      .select('name', 'lastName', 'value')
+      .joinRelation('[user, hour]')
+      .where('day_id', numberDay)
+      .then(results => res.json({results, 'time': {hourNow, minuteNow, secondNow, numberDay}}))
   })
 
   app.get('/data/lokrsiidlldiiwesoodl', function(req, res){
@@ -226,6 +221,16 @@ module.exports = (app) => {
       .joinRelation('[user, day, hour]')
       .where('turn.work_id', req.session.work)
       .then(result => res.json(result));
+  });
+
+  // get workers in work for admin
+  app.get('/data/workers/j563238k9jkggfff4g', function(req, res){
+    User
+      .query()
+      .select('name', 'lastName', 'email', 'phone', 'rut')
+      .where('work_id', req.session.work)
+      .then(result => res.json(result))
+
   });
 
 }
