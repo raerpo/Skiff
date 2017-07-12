@@ -1,6 +1,6 @@
 import React from 'react';
 
-class FormularyMarket extends React.Component {
+class FormularyWork extends React.Component {
     render(){
         return(
    <div id="content-formRegister-market" className="panel panel-primary">
@@ -22,14 +22,14 @@ class FormularyMarket extends React.Component {
              </div>
 
              <div className="form-group col-md-6 col-sm-6">
-                 <label>Numero de cajas*</label>
+                 <label>Numero de Puestos*</label>
                  <input ref="inputBox" type="text" onKeyUp={this.props.press} className={`form-control input-sm ${this.props.classBox}`} autoComplete= 'off' placeholder="Ej: 5"/>
              </div>
 
        <div className="form-group col-md-6 col-sm-6">
-           <label>Supermercado*</label>
+           <label>Trabajo*</label>
            <select ref="selectType" onClick={this.props.press} className={`form-control input-sm ${this.props.classType}`} >
-         <option value="">Tipo de Supermercado</option>
+         <option value="">Tipo de trabajo</option>
          <option value="Lider"> Lider </option>
          <option value="Jumbo"> Jumbo </option>
          <option value="Tottus"> Tottus </option>
@@ -49,4 +49,4 @@ class FormularyMarket extends React.Component {
     }
 }
 
-export default FormularyMarket;
+export default FormularyWork;

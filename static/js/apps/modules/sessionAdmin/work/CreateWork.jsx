@@ -1,7 +1,7 @@
 import React from 'react';
-import FormularyMarket from './FormularyMarket';
+import FormularyWork from './FormularyWork';
 
-class CreateMarket extends React.Component{
+class CreateWork extends React.Component{
 
  constructor(props){
   super(props)
@@ -19,10 +19,10 @@ class CreateMarket extends React.Component{
  }
 
  send(){
-  const city = this.refs.FormularyMarket.refs.inputCity.value;
-  const address = this.refs.FormularyMarket.refs.inputAddress.value;
-  const totalPlaces = this.refs.FormularyMarket.refs.inputBox.value;
-  const type = this.refs.FormularyMarket.refs.selectType.value;
+  const city = this.refs.FormularyWork.refs.inputCity.value;
+  const address = this.refs.FormularyWork.refs.inputAddress.value;
+  const totalPlaces = this.refs.FormularyWork.refs.inputBox.value;
+  const type = this.refs.FormularyWork.refs.selectType.value;
 
   if( this.state.city.newClass === "dataCorrect" &&
    this.state.address.newClass === "dataCorrect" &&
@@ -40,10 +40,10 @@ class CreateMarket extends React.Component{
  }
 
  validation(){
-  const city = this.refs.FormularyMarket.refs.inputCity.value;
-  const address = this.refs.FormularyMarket.refs.inputAddress.value;
-  const totalPlaces = this.refs.FormularyMarket.refs.inputBox.value;
-  const type = this.refs.FormularyMarket.refs.selectType.value;
+  const city = this.refs.FormularyWork.refs.inputCity.value;
+  const address = this.refs.FormularyWork.refs.inputAddress.value;
+  const totalPlaces = this.refs.FormularyWork.refs.inputBox.value;
+  const type = this.refs.FormularyWork.refs.selectType.value;
 
   const validateNumber = /^\d{1,2}$/;
   const validateCity = /^[a-zA-Z]{2,15}$/;
@@ -85,7 +85,7 @@ class CreateMarket extends React.Component{
  render(){
   return (
    <div>
-    <FormularyMarket ref="FormularyMarket" press={this.validation} send={this.send}
+    <FormularyWork ref="FormularyWork" press={this.validation} send={this.send}
      classCity={this.state.city.newClass}
      classAddress={this.state.address.newClass}
      classBox={this.state.totalPlaces.newClass}
@@ -96,4 +96,4 @@ class CreateMarket extends React.Component{
  }
 }
 
-export default CreateMarket;
+export default CreateWork;

@@ -5,18 +5,18 @@ function getData(){
     return $.get('/data/market/dfg43g3gfdg42fyy');
 }
 
-const Market = ({ comune, country, rutAdmin, totalBoxes, type, address }) => (
+const Work = ({ comune, country, rutAdmin, places, type, address }) => (
     <div className="box-market">
         <h2 className="header-market">{type}</h2>
         <div><span className="primaryText">Dirección</span>: {address}</div>
         <div><span className="primaryText">Rut</span>: {rutAdmin}</div>
         <div><span className="primaryText">Comuna</span>: {comune}</div>
         <div><span className="primaryText">País</span>: {country}</div>
-        <div><span className="primaryText">Número de cajas</span>: {totalBoxes}</div>
+        <div><span className="primaryText">Número de puestos</span>: {places}</div>
     </div>
 )
 
-class ViewMarket extends React.Component{
+class ViewWork extends React.Component{
 
     constructor(props){
         super(props)
@@ -37,21 +37,21 @@ class ViewMarket extends React.Component{
     }
 
     render(){
-        const market = this.state.informationMarket.market.map((data, index) => 
-            <Market 
+        const work = this.state.informationMarket.market.map((data, index) =>
+            <Work
             type={data.type}
-            rutAdmin={data.rut_admin}
+            rutAdmin={data.admin_rut}
             address={data.address}
             comune={data.comune}
             country={data.country}
-            totalBoxes={data.totalBoxes}
+            places={data.totalPlaces}
             key={index} />
         );
 
         return(
             <div>
-                <div className="content-market">
-                    {market}
+                <div className="content-work">
+                    {work}
                 </div>
                 <Footer typeFooter={"1"}/>
             </div>
@@ -60,4 +60,4 @@ class ViewMarket extends React.Component{
 
 }
 
-export default ViewMarket;
+export default ViewWork;

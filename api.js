@@ -46,12 +46,12 @@ module.exports = (app) => {
   // <---------------- ADMIN -------------->
   app.get('/admin/home', (req, res) => {
     if(req.session.work == null){
-      res.redirect('/admin/market/create')
+      res.redirect('/admin/work/create')
     }
 
     res.render('session');
   });
-  app.get('/admin/market/create', function(req, res){
+  app.get('/admin/work/create', function(req, res){
     if(req.session.market){
       res.redirect('/admin/home');
     }else{
@@ -61,7 +61,7 @@ module.exports = (app) => {
   app.get('/admin/worker/approve', (req, res) => res.render('session'));
   app.get('/admin/worker/view', (req, res) => res.render('session'));
   app.get('/admin/worker/viewAllTurns', (req, res) => res.render('session'));
-  app.get('/admin/view/supermarket', (req, res) => res.render('session'));
+  app.get('/admin/view/work', (req, res) => res.render('session'));
   app.get('/exit', function(req, res){
     req.session = null;
     res.redirect('/');
@@ -148,7 +148,7 @@ module.exports = (app) => {
 
   })
 
-  //getBoxSuperMarket
+  //get places Work
   app.get('/data/fvht3sd120980ksd881s', function(req, res){
     Work
       .query()
@@ -159,7 +159,7 @@ module.exports = (app) => {
       })
     });
 
-  // get all turns of superMarket
+  // get all turns of the work
   app.get('/turns/frsdkff2apod9983' , function(req, res){
     Turn
       .query()
@@ -199,6 +199,13 @@ module.exports = (app) => {
       .delete()
       .where('rut', '=', req.body.data.rut)
       .then(console.log);
+  });
+
+  app.get('/data/market/dfg43g3gfdg42fyy', function(req, res){
+      Work
+        .query()
+        .where('admin_rut', '=', req.session.user)
+        .then(result => res.json(result));
   });
 
 }

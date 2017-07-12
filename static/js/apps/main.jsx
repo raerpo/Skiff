@@ -18,8 +18,8 @@ import Register from './modules/register/Register';
 import PageAdmin from './modules/sessionAdmin/PageAdmin';
 import HomeAdm from './modules/sessionAdmin/homeAdm/HomeAdm';
 import WorkersApprove from './modules/sessionAdmin/workers/approve/WorkersApprove';
-import CreateMarket from './modules/sessionAdmin/market/CreateMarket';
-import ViewMarket from './modules/sessionAdmin/market/ViewMarket';
+import CreateWork from './modules/sessionAdmin/work/CreateWork';
+import viewWork from './modules/sessionAdmin/work/viewWork';
 import WorkersView from './modules/sessionAdmin/workers/WorkersView';
 import ViewAllTurns from './modules/session/turns/viewAllTurns';
 
@@ -50,8 +50,8 @@ ReactDOM.render(
             <Route path="/admin/home" component={ HomeAdm } />
             <Route path="/admin/worker/approve" component={ WorkersApprove } />
             <Route path="/admin/worker/view" component={ WorkersView } />
-            <Route path="/admin/market/create" component={ CreateMarket } />
-            <Route path="/admin/view/supermarket" component={ ViewMarket} />
+            <Route path="/admin/work/create" component={ CreateWork } />
+            <Route path="/admin/view/work" component={ viewWork } />
             <Route path="/admin/worker/viewAllTurns" component={ ViewAllTurns } />
         </Route>
     </Router>,

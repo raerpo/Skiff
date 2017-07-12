@@ -5,7 +5,7 @@
     padding: 1em;
     border-radius: 0px 0px 15px 15px;
     min-width: 330px;
-}   
+}
 
 .content-worker{
     width: 32%;
@@ -37,7 +37,6 @@
 }
 
 .primaryText{
-    font-weight: bold;
     display: inline-block;
     width: 50%;
 }

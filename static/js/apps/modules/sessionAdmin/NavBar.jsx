@@ -30,7 +30,7 @@ class NavBar extends React.Component {
                    <li className='dropdown'>
                     <a href='#' className='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'><span className='glyphicon glyphicon-check'></span> Administrar <span className='caret'></span></a>
                     <ul className='dropdown-menu'>
-                      <li><a href='/admin/view/supermarket'><span className='glyphicon glyphicon-triangle-right '></span> Trabajo </a></li>
+                      <li><a href='/admin/view/work'><span className='glyphicon glyphicon-triangle-right '></span> Trabajo </a></li>
                       {/*<li><a href='#'><span className='glyphicon glyphicon-triangle-right '></span> Informe semanal PDF </a></li>*/}
                       {/*<li><a href='#'><span className='glyphicon glyphicon-triangle-right '></span> Ver planes </a></li>
                       <li><a href='#'><span className='glyphicon glyphicon-triangle-right '></span> Pagar </a></li>*/}
