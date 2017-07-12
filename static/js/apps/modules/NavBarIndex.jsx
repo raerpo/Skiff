@@ -14,7 +14,7 @@ class NavBarIndex extends React.Component {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a className="navbar-brand" href="/index">MarketPlace</a>
+            <a className="navbar-brand" href="/index">Skiff</a>
           </div>
           <div id="navbar" className="navbar-collapse collapse">
             <ul className="nav navbar-nav">
@@ -28,7 +28,7 @@ class NavBarIndex extends React.Component {
                   <li><a href="#" role="button" data-toggle="modal" data-target="#login-modal-admin"><span className="glyphicon glyphicon-triangle-right "></span> Administrador </a></li>
                 </ul>
               </li>
-              
+
             </ul>
             <ul className="nav navbar-nav nav2">
               <li className="index-navbar"><a href="/register"><span className="glyphicon glyphicon-check"></span> Registrarse </a></li>

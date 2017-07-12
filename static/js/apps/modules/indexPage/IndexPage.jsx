@@ -22,7 +22,7 @@ class IndexPage extends React.Component {
              <img className="first-slide" src="./static/images/carousel_index/image_1.jpg" alt="First slide" />
              <div className="container">
                <div className="carousel-caption">
-                 <div className="titleFloat"><h1>MarketPlace</h1></div>
+                 <div className="titleFloat"><h1>Skiff</h1></div>
                   <p className="minText">Es la aplicación web que optimizará y mejorará la toma de turnos ofreciendo comodidad, estabilidad y calidad.</p>
                </div>
              </div>
@@ -32,7 +32,7 @@ class IndexPage extends React.Component {
              <div className="container">
                <div className="carousel-caption">
                  <div className="titleFloat"><h1>Expansión</h1></div>
-                 <p className="minText">Siempre hay que apuntar hacia el futuro, por ello MarketPlace se mantiene en constante crecimiento día a día.</p>
+                 <p className="minText">Siempre hay que apuntar hacia el futuro, por ello Skiff se mantiene en constante crecimiento día a día.</p>
                </div>
              </div>
            </div>
@@ -41,7 +41,7 @@ class IndexPage extends React.Component {
              <div className="container">
                <div className="carousel-caption">
                  <div className="titleFloat"><h1>Comodidad</h1></div>
-                 <p className="minText">Gracias al enfoque de MarketPlace podrás tomar turnos con tus compañeros de trabajo desde la comodidad de tu hogar.</p>
+                 <p className="minText">Gracias al enfoque de Skiff podrás tomar turnos con tus compañeros de trabajo desde la comodidad de tu hogar.</p>
                </div>
              </div>
            </div>
@@ -62,7 +62,7 @@ class IndexPage extends React.Component {
            <div className="col-lg-4">
              <img className="img-circle" src="static/images/registro.png" alt="Generic placeholder image" width="140" height="140" />
              <h2>Registrate</h2>
-             <p>Solo debes dirigirte a nuestro boton "registrarse" para que puedas formar parte de MarketPlace.</p>
+             <p>Solo debes dirigirte a nuestro boton "registrarse" para que puedas formar parte de Skiff.</p>
 
      </div>
            <div className="col-lg-4">
@@ -74,7 +74,7 @@ class IndexPage extends React.Component {
            <div className="col-lg-4">
              <img className="img-circle" src="static/images/f939ac_6ec238b523784dfe81f895ee2657d8ab.png" alt="Generic placeholder image" width="140" height="140" />
              <h2>Toma turnos!</h2>
-             <p>Tomar turnos es muy sencillo en MarketPlace, solo un par de pasos y ya podrás seleccionar tus horarios.</p>
+             <p>Tomar turnos es muy sencillo en Skiff, solo un par de pasos y ya podrás seleccionar tus horarios.</p>
            </div>
          </div>
    </div>

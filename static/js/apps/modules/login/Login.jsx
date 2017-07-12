@@ -20,7 +20,7 @@ class Login extends React.Component {
                                 <div className="modal-body">
                                     <div id="div-login-msg">
                                         <div id="icon-login-msg" className="glyphicon glyphicon-chevron-right"></div>
-                                        <span id="text-login-msg"> Acceso de usuario a MarketPlace </span>
+                                        <span id="text-login-msg"> Acceso de usuario a Skiff </span>
                                     </div>
                                     <input id="login_username" name="username" className="form-control" type="text" placeholder="usuario" required />
                                     <input id="login_password" name="password" className="form-control" type="password" placeholder="contraseña" required />
