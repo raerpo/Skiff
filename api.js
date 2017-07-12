@@ -220,26 +220,12 @@ module.exports = (app) => {
 
   //get all turns
   app.get('/data/turns/k82rjhsd8883kfdsss', function(req, res){
-    // User
-    //   .query()
-    //   .select('user.name', 'lastName', 'day_id')
-    //   .joinRelation('turn')
-    //   .then(console.log)
-
-    // const query = `SELECT
-    //                       user.name,
-    //                       user.lastName,
-    //                       days.name as nameDay,
-    //                       days.id_d,
-    //                       hours.id_h,
-    //                       hours.value
-    //                       FROM turns, days, hours, user
-    //                       WHERE days.id_d=turns.id_day
-    //                       AND hours.id_h=turns.id_hour
-    //                       AND user.rut=turns.id_user
-    //                       AND id_superMarket=${req.session.market}
-    //                       ORDER BY  days.id_d, hours.id_h ASC`;
-
+    Turn
+      .query()
+      .select('user.name as UserName', 'lastName', 'day_id', 'day.name as dayName', 'id_h', 'value')
+      .joinRelation('[user, day, hour]')
+      .where('turn.work_id', req.session.work)
+      .then(result => res.json(result));
   });
 
 }
