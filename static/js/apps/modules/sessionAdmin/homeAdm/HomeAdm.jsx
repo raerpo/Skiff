@@ -10,7 +10,7 @@ const HomeAdm = () => (
               url={"../static/images/sleep_cat2.gif"} />
               <RigthMenu />
          </div>
-              <Footer typeFooter={'2'} />
+              <Footer typeFooter={'1'} />
     </div>
 );
 

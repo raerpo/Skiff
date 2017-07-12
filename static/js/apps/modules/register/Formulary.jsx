@@ -12,12 +12,7 @@ class Formulary extends React.Component {
             <form id="formRegister" onSubmit={this.props.submit}>
             <div className="col-md-12 col-sm-12">
               <div className="form-group col-md-6 col-sm-6">
-                      <label>Rut*</label>
-                      <input ref="inputRut" onKeyUp={this.props.press} type="text" className={`form-control input-sm ${this.props.classRut}`} id="rut" autoComplete= 'off' placeholder="Ej: 16356467-3"/>
-                  </div>
-
-                  <div className="form-group col-md-6 col-sm-6">
-                      <label>Nombre*</label>
+                    <label>Nombre*</label>
                       <input ref="inputName" onKeyUp={this.props.press} type="text" className={`form-control input-sm ${this.props.classNameUser}`} id="name" autoComplete= 'off' placeholder="Nombre"/>
                   </div>
 
@@ -26,14 +21,19 @@ class Formulary extends React.Component {
                       <input ref="inputLastName" onKeyUp={this.props.press} type="text" className={`form-control input-sm ${this.props.classLastName}`} id="lastName" autoComplete= 'off' placeholder="Apellido"/>
                   </div>
 
-              <div className="form-group col-md-6 col-sm-6">
-                      <label>Contraseña*</label>
-                      <input ref="inputPsw1" onKeyUp={this.props.press} type="password" className={`form-control input-sm ${this.props.classPassword}`} id="password" placeholder="Contraseña"/>
+                  <div className="form-group col-md-6 col-sm-6">
+                    <label>Contraseña*</label>
+                    <input ref="inputPsw1" onKeyUp={this.props.press} type="password" className={`form-control input-sm ${this.props.classPassword} psw-bottstrap`} id="password" placeholder="Contraseña"/>
                   </div>
 
               <div className="form-group col-md-6 col-sm-6">
                       <label>Confirmar contraseña*</label>
-                      <input ref="inputPsw2" onKeyUp={this.props.press} type="password" className={`form-control input-sm ${this.props.classPassword}`} id="confirmPassword" placeholder="Confirmar contraseña"/>
+                      <input ref="inputPsw2" onKeyUp={this.props.press} type="password" className={`form-control input-sm ${this.props.classPassword} psw-bottstrap`} id="confirmPassword" placeholder="Confirmar contraseña"/>
+                  </div>
+
+              <div className="form-group col-md-6 col-sm-6">
+                      <label>Rut*</label>
+                      <input ref="inputRut" onKeyUp={this.props.press} type="text" className={`form-control input-sm ${this.props.classRut}`} id="rut" autoComplete= 'off' placeholder="Ej: 16356467-3"/>
                   </div>
 
               <div className="form-group col-md-6 col-sm-6">

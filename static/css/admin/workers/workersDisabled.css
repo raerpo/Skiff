@@ -22,16 +22,16 @@
 
 .noWorkers-content{
  width: 90%;
- border: 2px solid #eaeaea;
+ border: 1px solid #eaeaea;
  margin: 2em auto;
  padding: 10em 5em;
  text-align: center;
- background-color: rgba(51, 122, 183, .1);
+ background-color: rgba(226, 227, 228, .1);
 }
 
 .noWorkers-text{
  font-size: 2em;
- color: #777;
+ color: #555;
 }
 
 .h3-admin{

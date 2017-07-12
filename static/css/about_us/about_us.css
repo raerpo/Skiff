@@ -3,16 +3,19 @@
  text-align: center;
  font-family: Arial;
  background: rgba(0, 108, 171, 0.8);
- width: 16%;
+ padding: .5em;
+ width: 20%;
  box-shadow: 2px 2px 5px 2px black;
 }
 .paragraph{
  font-size: 110%;
  line-height: 120%;
  font-family: Tahoma;
+ margin: 2em 0px;
 }
 .about-container{
- margin-left: 2%;
+ width: 80%;
+ margin: 5em auto 0px;
 }
 .we{
  color:#999;

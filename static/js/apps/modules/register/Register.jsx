@@ -142,7 +142,7 @@ class Register extends React.Component {
     />
    </div>
    <Footer
-   typeFooter={'2'}
+   typeFooter={'1'}
    />
   </div>
   )
