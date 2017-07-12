@@ -202,10 +202,44 @@ module.exports = (app) => {
   });
 
   app.get('/data/market/dfg43g3gfdg42fyy', function(req, res){
-      Work
-        .query()
-        .where('admin_rut', '=', req.session.user)
-        .then(result => res.json(result));
+    Work
+      .query()
+      .where('admin_rut', '=', req.session.user)
+      .then(result => res.json(result));
+  });
+
+  // getTurnsToView
+  app.get('/data/jj8dd1scsa82jsass224', function(req, res){
+    Turn
+      .query()
+      .select('value', 'name')
+      .joinRelation('[day, hour]')
+      .where('user_id', req.session.user)
+      .then(result => res.json(result))
+  });
+
+  //get all turns
+  app.get('/data/turns/k82rjhsd8883kfdsss', function(req, res){
+    // User
+    //   .query()
+    //   .select('user.name', 'lastName', 'day_id')
+    //   .joinRelation('turn')
+    //   .then(console.log)
+
+    // const query = `SELECT
+    //                       user.name,
+    //                       user.lastName,
+    //                       days.name as nameDay,
+    //                       days.id_d,
+    //                       hours.id_h,
+    //                       hours.value
+    //                       FROM turns, days, hours, user
+    //                       WHERE days.id_d=turns.id_day
+    //                       AND hours.id_h=turns.id_hour
+    //                       AND user.rut=turns.id_user
+    //                       AND id_superMarket=${req.session.market}
+    //                       ORDER BY  days.id_d, hours.id_h ASC`;
+
   });
 
 }

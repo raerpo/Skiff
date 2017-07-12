@@ -6,9 +6,8 @@ module.exports = {
     useNullAsDefault: true,
     connection: {
       filename: 'dev.sqlite3'
-    }
-    // },
-    // debug: true
+    },
+    debug: true
   },
   production: {
     client: 'mysql',
