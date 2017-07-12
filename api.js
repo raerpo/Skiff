@@ -44,7 +44,13 @@ module.exports = (app) => {
   });
 
   // <---------------- ADMIN -------------->
-  app.get('/admin/home', (req, res) => { if(req.session.work == null){ res.redirect('/admin/market/create');}});
+  app.get('/admin/home', (req, res) => {
+    if(req.session.work == null){
+      res.redirect('/admin/market/create')
+    }
+
+    res.render('session');
+  });
   app.get('/admin/market/create', function(req, res){
     if(req.session.market){
       res.redirect('/admin/home');

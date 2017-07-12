@@ -30,7 +30,10 @@ class CreateMarket extends React.Component{
    this.state.type.newClass === "dataCorrect" ){
    $.post('/admin/market/create/validate', {
     city, address, totalPlaces, type
-   });
+   }).then((result) => {
+        alert('¡Trabajo creado exitosamente!');
+        window.location.href = result.url;
+      });
   }else{
    alert("Corrige los campos incorrectos");
   }

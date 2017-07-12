@@ -8,7 +8,6 @@ class Admin extends Model {
   static get jsonSchema() {
     return {
       type: 'object',
-      required: ['rut', 'name', 'lastName', 'birth', 'avaibleDays'],
 
       properties: {
         rut: { type: 'string', minLength: 1, maxLength: 10 },
@@ -34,7 +33,7 @@ class Admin extends Model {
 
   static get relationMappings() {
     return {
-      work_id: {
+      work: {
         relation: Model.BelongsToOneRelation,
         modelClass: __dirname + '/Work',
         join: {
