@@ -169,4 +169,36 @@ module.exports = (app) => {
       });
   })
 
+  // get Workers disabled
+  app.get('/data/user/jdqwerdfisllediifkwuyh', function(req, res){
+    User
+      .query()
+      .select('rut', 'name', 'lastNane', 'phone', 'statusAccount')
+      .where('work_id', '=', req.session.work)
+      .andWhere('statusAccount', '=', 2)
+      .then(result => {
+        res.json(result);
+      })
+  });
+
+  app.post('/admin/workers/add', function(req, res){
+    const rut = req.body.data.rut;
+
+    User
+      .query()
+      .update({
+        statusAccount: 1
+      })
+      .where('rut', '=', req.body.data.rut)
+      .then(console.log)
+  });
+
+  app.post('/admin/workers/remove', function(req, res){
+    User
+      .query()
+      .delete()
+      .where('rut', '=', req.body.data.rut)
+      .then(console.log);
+  });
+
 }

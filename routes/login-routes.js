@@ -26,6 +26,7 @@ const userLogin = (req, res) => {
     .query()
     .where('rut' , '=', username)
     .andWhere('password', '=', password)
+    .andWhere('statusAccount', '=', 1)
     .then(sessionHandler(req, res, 'worker'));
 };
 
@@ -37,6 +38,7 @@ const adminLogin = (req, res) => {
     .query()
     .where('rut', '=', username)
     .andWhere('password', '=', password)
+    .andWhere('statusAccount', '=', 1)
     .then(sessionHandler(req, res, 'admin'));
 };
 

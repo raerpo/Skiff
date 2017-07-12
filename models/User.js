@@ -9,8 +9,6 @@ class User extends Model {
     return {
       type: 'object',
 
-      required: ['rut', 'name', 'lastName', 'email'],
-
       properties: {
         rut: { type: 'string', minLength: 1, maxLength: 10 },
         work_id: { type: ['integer', 'null'] },
@@ -31,7 +29,7 @@ class User extends Model {
 
   static get relationMappings() {
     return{
-      work_id:{
+      work: {
         relation: Model.BelongsToOneRelation,
         modelClass: __dirname + '/Work',
         join: {

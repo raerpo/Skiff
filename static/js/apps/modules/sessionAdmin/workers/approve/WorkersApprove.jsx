@@ -26,22 +26,28 @@ class WorkersApprove extends React.Component{
  }
 
  approve(position){
-  const add = this.state.WorkersDis[position];
-  $.post('/admin/workers/add', { data : add });
+  let workers = this.state.WorkersDis;
+  let add = workers[position];
+  workers.splice(position, 1);
+  this.setState({
+    WorkersDis : workers
+  });
+
+  $.post('/admin/workers/add', { data : add })
  }
 
  remove(position){
-  var option = confirm("¿Esta seguro que desea elimnar a este usuario?");
+  let option = confirm("¿Esta seguro que desea elimnar a este usuario?");
   if(option == true){
 
-   var workers = this.state.WorkersDis;
-   var deleted = workers[position];
-   workers.splice(position, 1);
-   this.setState({
-    WorkersDis : workers
-   });
+    let workers = this.state.WorkersDis;
+    let deleted = workers[position];
+    workers.splice(position, 1);
+    this.setState({
+      WorkersDis : workers
+    });
 
-   $.post('/admin/workers/remove', { data : deleted })
+    $.post('/admin/workers/remove', { data : deleted })
   }
 
  }

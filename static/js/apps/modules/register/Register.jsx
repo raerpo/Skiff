@@ -41,19 +41,19 @@ class Register extends React.Component {
    this.state.email.newClass === "dataCorrect"){
    $.post('/register/createAccount', {
     data : {
-     rut,
-     password : psw1,
-     name,
-     lastName,
-     birth : '10',
-     phone: '97775554',
-     email,
+      rut,
+      password : psw1,
+      name,
+      lastName,
+      birth : null,
+      phone: '955555555',
+      email,
       comune : 'valparaiso',
-     country: 'Chile',
-     availableDays : null,
-     work_id : null,
-     type : 1,
-     statusAccount: 1
+      country: 'Chile',
+      availableDays : null,
+      work_id : null,
+      type : 1,
+      statusAccount: 2
     }
    }).then((result) => {
         alert('usuario creado exitosamente, ahora tu administrador tiene que aprobar tu cuenta.');

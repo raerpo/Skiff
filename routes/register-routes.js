@@ -12,6 +12,7 @@ const registerUser = (req, res) => {
     rut: data.rut,
     password: data.password,
     name: data.name,
+    work_id: 1,
     lastName: data.lastName,
     email: data.email,
     type: parseInt(data.type),
